@@ -1,5 +1,6 @@
 
 import { defineConfig } from 'astro/config';
+import viteConfig from './vite.config.js';
 
 // https://astro.build/config
 export default defineConfig({
@@ -7,14 +8,5 @@ export default defineConfig({
     host: '0.0.0.0',
     port: 3000
   },
-  vite: {
-    server: {
-      hmr: {
-        clientPort: 443
-      },
-      // Add the Replit domain to allowed hosts
-      host: '0.0.0.0',
-      strictPort: true
-    }
-  }
+  vite: viteConfig
 });
