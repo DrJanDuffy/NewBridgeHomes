@@ -1,0 +1,243 @@
+
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+---
+
+<MainLayout title="New Bridge Homes - Available Properties">
+  <section class="page-header">
+    <div class="container">
+      <h1>Available Properties</h1>
+      <p>Browse our collection of exceptional homes in the New Bridge community</p>
+    </div>
+  </section>
+
+  <section class="listings">
+    <div class="container">
+      <div class="filters">
+        <div class="filter-options">
+          <select name="property-type" id="property-type">
+            <option value="">Property Type</option>
+            <option value="house">House</option>
+            <option value="townhouse">Townhouse</option>
+            <option value="condo">Condo</option>
+          </select>
+          <select name="price-range" id="price-range">
+            <option value="">Price Range</option>
+            <option value="500k">Under $500k</option>
+            <option value="750k">$500k - $750k</option>
+            <option value="1m">$750k - $1M</option>
+            <option value="1m+">$1M+</option>
+          </select>
+          <select name="bedrooms" id="bedrooms">
+            <option value="">Bedrooms</option>
+            <option value="1">1+</option>
+            <option value="2">2+</option>
+            <option value="3">3+</option>
+            <option value="4">4+</option>
+          </select>
+        </div>
+        <div class="search">
+          <input type="text" placeholder="Search by location or keyword" />
+          <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+      </div>
+
+      <div class="property-grid">
+        <div class="property-card">
+          <div class="property-image">
+            <img src="https://placehold.co/600x400" alt="Luxury Villa" />
+          </div>
+          <div class="property-details">
+            <h3>Luxury Villa</h3>
+            <p class="price">$750,000</p>
+            <p class="address">123 New Bridge Ave</p>
+            <div class="property-features">
+              <span>4 Beds</span>
+              <span>3 Baths</span>
+              <span>2,500 sqft</span>
+            </div>
+            <a href="/listings/luxury-villa" class="btn btn-secondary">View Details</a>
+          </div>
+        </div>
+        
+        <div class="property-card">
+          <div class="property-image">
+            <img src="https://placehold.co/600x400" alt="Modern Townhouse" />
+          </div>
+          <div class="property-details">
+            <h3>Modern Townhouse</h3>
+            <p class="price">$550,000</p>
+            <p class="address">456 New Bridge Blvd</p>
+            <div class="property-features">
+              <span>3 Beds</span>
+              <span>2.5 Baths</span>
+              <span>1,800 sqft</span>
+            </div>
+            <a href="/listings/modern-townhouse" class="btn btn-secondary">View Details</a>
+          </div>
+        </div>
+        
+        <div class="property-card">
+          <div class="property-image">
+            <img src="https://placehold.co/600x400" alt="Family Home" />
+          </div>
+          <div class="property-details">
+            <h3>Family Home</h3>
+            <p class="price">$650,000</p>
+            <p class="address">789 New Bridge Court</p>
+            <div class="property-features">
+              <span>4 Beds</span>
+              <span>3 Baths</span>
+              <span>2,200 sqft</span>
+            </div>
+            <a href="/listings/family-home" class="btn btn-secondary">View Details</a>
+          </div>
+        </div>
+        
+        <div class="property-card">
+          <div class="property-image">
+            <img src="https://placehold.co/600x400" alt="Waterfront Condo" />
+          </div>
+          <div class="property-details">
+            <h3>Waterfront Condo</h3>
+            <p class="price">$450,000</p>
+            <p class="address">101 New Bridge Harbor</p>
+            <div class="property-features">
+              <span>2 Beds</span>
+              <span>2 Baths</span>
+              <span>1,200 sqft</span>
+            </div>
+            <a href="/listings/waterfront-condo" class="btn btn-secondary">View Details</a>
+          </div>
+        </div>
+        
+        <div class="property-card">
+          <div class="property-image">
+            <img src="https://placehold.co/600x400" alt="Luxury Estate" />
+          </div>
+          <div class="property-details">
+            <h3>Luxury Estate</h3>
+            <p class="price">$1,250,000</p>
+            <p class="address">55 New Bridge Estates</p>
+            <div class="property-features">
+              <span>5 Beds</span>
+              <span>4.5 Baths</span>
+              <span>4,500 sqft</span>
+            </div>
+            <a href="/listings/luxury-estate" class="btn btn-secondary">View Details</a>
+          </div>
+        </div>
+        
+        <div class="property-card">
+          <div class="property-image">
+            <img src="https://placehold.co/600x400" alt="Contemporary Home" />
+          </div>
+          <div class="property-details">
+            <h3>Contemporary Home</h3>
+            <p class="price">$850,000</p>
+            <p class="address">222 New Bridge Park</p>
+            <div class="property-features">
+              <span>4 Beds</span>
+              <span>3.5 Baths</span>
+              <span>3,000 sqft</span>
+            </div>
+            <a href="/listings/contemporary-home" class="btn btn-secondary">View Details</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="pagination">
+        <a href="#" class="active">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">Next →</a>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .page-header {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://placehold.co/1200x300') no-repeat center center;
+    background-size: cover;
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .page-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .filters {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .filter-options {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .filter-options select {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+  }
+  
+  .search {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .search input {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    min-width: 250px;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    gap: 0.5rem;
+  }
+  
+  .pagination a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-decoration: none;
+    color: var(--color-dark);
+    transition: all 0.3s;
+  }
+  
+  .pagination a.active, .pagination a:hover {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+  }
+  
+  @media (max-width: 768px) {
+    .filters {
+      flex-direction: column;
+    }
+    
+    .filter-options, .search {
+      width: 100%;
+    }
+    
+    .search input {
+      flex-grow: 1;
+    }
+  }
+</style>
