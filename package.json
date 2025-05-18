@@ -9,7 +9,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "replit": "astro dev --host 0.0.0.0 --port 3000"
   },
   "keywords": [],
   "author": "",
