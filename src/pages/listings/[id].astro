@@ -2,7 +2,7 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
 
-export function getStaticPaths() {
+export async function getStaticPaths() {
   // Define properties inside getStaticPaths so it's available in this function's scope
   const properties = {
     'luxury-villa': {
