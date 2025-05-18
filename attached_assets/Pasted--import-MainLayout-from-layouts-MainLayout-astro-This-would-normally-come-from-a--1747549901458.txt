@@ -1,0 +1,180 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+
+// This would normally come from a database or CMS
+const properties = {
+  'luxury-villa': {
+    title: 'Luxury Villa',
+    price: 750000,
+    address: '123 New Bridge Ave',
+    beds: 4,
+    baths: 3,
+    sqft: 2500,
+    year: 2022,
+    lotSize: '0.25 acres',
+    images: [
+      'https://placehold.co/800x600',
+      'https://placehold.co/800x600',
+      'https://placehold.co/800x600'
+    ],
+    description: 'Stunning luxury villa with modern amenities, spacious rooms, and beautiful garden. Perfect for families looking for comfort and elegance. This exceptional home features high ceilings, natural light throughout, and premium finishes. The gourmet kitchen includes high-end appliances, stone countertops, and a large island. The primary suite offers a spa-like bathroom and walk-in closet. Outside, you\'ll find a professionally landscaped yard, covered patio, and room for outdoor entertaining.',
+    features: [
+      'Gourmet kitchen with high-end appliances',
+      'Spacious primary suite with walk-in closet',
+      'Custom cabinetry and built-ins',
+      'Hardwood floors throughout main level',
+      'Energy-efficient windows and HVAC',
+      'Smart home technology',
+      'Outdoor covered patio',
+      'Professional landscaping'
+    ]
+  },
+  'modern-townhouse': {
+    title: 'Modern Townhouse',
+    price: 550000,
+    address: '456 New Bridge Blvd',
+    beds: 3,
+    baths: 2.5,
+    sqft: 1800,
+    year: 2023,
+    lotSize: 'N/A (Townhome)',
+    images: [
+      'https://placehold.co/800x600',
+      'https://placehold.co/800x600',
+      'https://placehold.co/800x600'
+    ],
+    description: 'Contemporary townhouse with open floor plan, high ceilings, and premium finishes. Conveniently located near shops and restaurants. This beautiful townhome offers a modern lifestyle with minimal maintenance. The main level features an open concept design that\'s perfect for entertaining, while the upper level provides comfortable bedrooms and a luxurious primary suite. Enjoy the convenience of an attached garage and private outdoor space.',
+    features: [
+      'Open concept floor plan',
+      'Designer kitchen with quartz countertops',
+      'Luxury vinyl plank flooring',
+      'Primary suite with ensuite bathroom',
+      'Attached two-car garage',
+      'Private patio',
+      'Low-maintenance exterior',
+      'Community amenities access'
+    ]
+  },
+  'family-home': {
+    title: 'Family Home',
+    price: 650000,
+    address: '789 New Bridge Court',
+    beds: 4,
+    baths: 3,
+    sqft: 2200,
+    year: 2021,
+    lotSize: '0.2 acres',
+    images: [
+      'https://placehold.co/800x600',
+      'https://placehold.co/800x600',
+      'https://placehold.co/800x600'
+    ],
+    description: 'Spacious family home in a quiet cul-de-sac. Features include a large backyard, updated kitchen, and comfortable living spaces. This welcoming home is perfect for family living and entertaining. The functional layout provides plenty of space for everyone, with a bonus room that could serve as an office, playroom, or media room. The backyard is fully fenced with a covered patio and plenty of space for outdoor activities.',
+    features: [
+      'Open kitchen with center island',
+      'Large family room with fireplace',
+      'Bonus room/office space',
+      'Primary suite on main level',
+      'Fenced backyard',
+      'Covered patio',
+      'Mudroom/laundry room',
+      'Quiet cul-de-sac location'
+    ]
+  }
+};
+
+const { id } = Astro.params;
+const property = properties[id];
+
+// Handle case when property isn't found
+if (!property) {
+  return Astro.redirect('/listings');
+}
+---
+
+<MainLayout title={`${property.title} | New Bridge Homes`}>
+  <div class="property-detail">
+    <div class="container">
+      <div class="property-header">
+        <h1>{property.title}</h1>
+        <p class="property-address">{property.address}</p>
+        <p class="property-price">${property.price.toLocaleString()}</p>
+      </div>
+      
+      <div class="property-gallery">
+        {property.images.map((image) => (
+          <div class="gallery-image">
+            <img src={image} alt={property.title} />
+          </div>
+        ))}
+      </div>
+      
+      <div class="property-content">
+        <div class="property-main">
+          <div class="property-overview">
+            <div class="overview-item">
+              <span class="label">Bedrooms</span>
+              <span class="value">{property.beds}</span>
+            </div>
+            <div class="overview-item">
+              <span class="label">Bathrooms</span>
+              <span class="value">{property.baths}</span>
+            </div>
+            <div class="overview-item">
+              <span class="label">Square Feet</span>
+              <span class="value">{property.sqft.toLocaleString()}</span>
+            </div>
+            <div class="overview-item">
+              <span class="label">Year Built</span>
+              <span class="value">{property.year}</span>
+            </div>
+            <div class="overview-item">
+              <span class="label">Lot Size</span>
+              <span class="value">{property.lotSize}</span>
+            </div>
+          </div>
+          
+          <div class="property-section">
+            <h2>Property Description</h2>
+            <p>{property.description}</p>
+          </div>
+          
+          <div class="property-section">
+            <h2>Features & Amenities</h2>
+            <ul class="features-list">
+              {property.features.map((feature) => (
+                <li>{feature}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        
+        <div class="property-sidebar">
+          <div class="contact-form">
+            <h3>Interested in this property?</h3>
+            <p>Fill out the form below to schedule a showing or request more information.</p>
+            <form>
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" />
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" required>I'm interested in learning more about this property.</textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</MainLayout>
