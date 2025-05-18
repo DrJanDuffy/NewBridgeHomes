@@ -4,10 +4,9 @@ import MainLayout from '../layouts/MainLayout.astro';
 ---
 
 <MainLayout title="About Us | New Bridge Homes">
-  <section class="about-hero">
+  <section class="page-header">
     <div class="container">
       <h1>About New Bridge Homes</h1>
-      <p>Building exceptional properties in beautiful communities since 2005</p>
     </div>
   </section>
 
@@ -15,50 +14,79 @@ import MainLayout from '../layouts/MainLayout.astro';
     <div class="container">
       <div class="about-grid">
         <div class="about-text">
-          <h2>Our Story</h2>
-          <p>New Bridge Homes was founded with a simple mission: to create exceptional living spaces in thriving communities. For over 15 years, we've been dedicated to building high-quality homes that combine modern design, premium materials, and thoughtful layouts.</p>
-          
-          <p>Our team of experienced professionals is committed to excellence in every aspect of home construction and sales. We believe that a home is more than just a building—it's where life happens, memories are made, and futures are built.</p>
-          
-          <h2>Our Approach</h2>
-          <p>At New Bridge Homes, we take a comprehensive approach to residential development:</p>
-          
-          <ul>
-            <li><strong>Quality Construction:</strong> We use only premium materials and work with skilled craftsmen.</li>
-            <li><strong>Thoughtful Design:</strong> Our homes feature functional layouts and elegant aesthetics.</li>
-            <li><strong>Community Focus:</strong> We develop in areas with excellent amenities and growth potential.</li>
-            <li><strong>Customer Service:</strong> We provide exceptional support throughout the buying process.</li>
+          <h2>Your Trusted Partner in Real Estate</h2>
+          <p>
+            Since our founding in 2010, New Bridge Homes has been dedicated to helping families find their perfect home in our beautiful planned community. With a focus on quality, service, and integrity, we've helped hundreds of happy homeowners start their new chapter in New Bridge.
+          </p>
+          <p>
+            Our team of experienced real estate professionals brings deep knowledge of the local market, combined with a passion for matching each client with their ideal property. We understand that buying a home is one of life's most significant decisions, and we're honored to be part of your journey.
+          </p>
+          <h3>Our Community Vision</h3>
+          <p>
+            New Bridge was designed to be more than just a collection of homes—it's a thriving community where residents enjoy exceptional amenities, beautiful surroundings, and a strong sense of belonging. From our walking trails and parks to community events and excellent schools, New Bridge offers the perfect balance of comfort, convenience, and connection.
+          </p>
+          <h3>Our Values</h3>
+          <ul class="values-list">
+            <li><strong>Quality:</strong> We represent only the finest properties built with superior craftsmanship.</li>
+            <li><strong>Integrity:</strong> We operate with transparency and honesty in every transaction.</li>
+            <li><strong>Service:</strong> We provide personalized attention and support throughout your real estate journey.</li>
+            <li><strong>Community:</strong> We're committed to fostering a vibrant, welcoming neighborhood for all residents.</li>
           </ul>
         </div>
-        
         <div class="about-image">
           <img src="https://placehold.co/600x800" alt="New Bridge Homes Team" />
         </div>
       </div>
-      
-      <div class="team-section">
-        <h2>Our Leadership Team</h2>
-        <div class="team-grid">
-          <div class="team-member">
-            <img src="https://placehold.co/300x300" alt="Team Member" />
-            <h3>Jane Smith</h3>
-            <p class="position">Founder & CEO</p>
-            <p>With over 25 years in real estate development, Jane leads our company vision and growth strategy.</p>
+    </div>
+  </section>
+
+  <section class="team-section">
+    <div class="container">
+      <h2>Meet Our Team</h2>
+      <div class="team-grid">
+        <div class="team-member">
+          <div class="member-image">
+            <img src="https://placehold.co/400x400" alt="Sarah Johnson" />
           </div>
-          
-          <div class="team-member">
-            <img src="https://placehold.co/300x300" alt="Team Member" />
-            <h3>John Davis</h3>
-            <p class="position">Chief Architect</p>
-            <p>John oversees all architectural design, ensuring our homes are both beautiful and functional.</p>
+          <h3>Sarah Johnson</h3>
+          <p class="member-title">Principal Broker</p>
+          <p class="member-bio">With over 15 years of real estate experience, Sarah leads our team with expertise and dedication to client satisfaction.</p>
+        </div>
+        <div class="team-member">
+          <div class="member-image">
+            <img src="https://placehold.co/400x400" alt="Michael Chen" />
           </div>
-          
-          <div class="team-member">
-            <img src="https://placehold.co/300x300" alt="Team Member" />
-            <h3>Sarah Johnson</h3>
-            <p class="position">Sales Director</p>
-            <p>Sarah leads our sales team with a focus on creating exceptional experiences for our clients.</p>
+          <h3>Michael Chen</h3>
+          <p class="member-title">Sales Director</p>
+          <p class="member-bio">Michael's market knowledge and negotiation skills ensure our clients receive the best possible value.</p>
+        </div>
+        <div class="team-member">
+          <div class="member-image">
+            <img src="https://placehold.co/400x400" alt="Jessica Rodriguez" />
           </div>
+          <h3>Jessica Rodriguez</h3>
+          <p class="member-title">Client Relations Manager</p>
+          <p class="member-bio">Jessica ensures a smooth experience for all clients, coordinating viewings and managing the purchase process.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="testimonials">
+    <div class="container">
+      <h2>What Our Clients Say</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial">
+          <div class="quote">"Working with New Bridge Homes was a fantastic experience from start to finish. They understood exactly what we were looking for and helped us find our dream home."</div>
+          <div class="client">- The Martinez Family</div>
+        </div>
+        <div class="testimonial">
+          <div class="quote">"The team's knowledge of the community and attention to detail made our homebuying process smooth and enjoyable. We couldn't be happier with our new home."</div>
+          <div class="client">- Robert & Emma Wilson</div>
+        </div>
+        <div class="testimonial">
+          <div class="quote">"As first-time homebuyers, we had a lot of questions. New Bridge Homes guided us through every step with patience and expertise. Highly recommended!"</div>
+          <div class="client">- James & Sophie Taylor</div>
         </div>
       </div>
     </div>
@@ -66,18 +94,16 @@ import MainLayout from '../layouts/MainLayout.astro';
 </MainLayout>
 
 <style>
-  .about-hero {
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://placehold.co/1200x300') no-repeat center center;
-    background-size: cover;
+  .page-header {
+    background-color: var(--color-primary);
     color: white;
     padding: 4rem 0;
     text-align: center;
     margin-bottom: 2rem;
   }
 
-  .about-hero h1 {
+  .page-header h1 {
     font-size: 2.5rem;
-    margin-bottom: 1rem;
   }
 
   .about-grid {
@@ -95,29 +121,37 @@ import MainLayout from '../layouts/MainLayout.astro';
     margin-bottom: 1.5rem;
   }
 
-  .about-text ul {
+  .about-text h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+  }
+
+  .values-list {
     margin-left: 1.5rem;
     margin-bottom: 1.5rem;
   }
 
-  .about-text li {
-    margin-bottom: 0.5rem;
+  .values-list li {
+    margin-bottom: 0.8rem;
   }
 
   .about-image img {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
     border-radius: 8px;
   }
 
   .team-section {
+    background-color: var(--color-light);
+    padding: 4rem 0;
     text-align: center;
-    margin-bottom: 4rem;
   }
 
   .team-section h2 {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
+    font-size: 2.2rem;
   }
 
   .team-grid {
@@ -127,28 +161,65 @@ import MainLayout from '../layouts/MainLayout.astro';
   }
 
   .team-member {
-    background-color: var(--color-light);
+    background-color: white;
     border-radius: 8px;
-    padding: 2rem;
-    text-align: center;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
   }
 
-  .team-member img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
+  .member-image img {
+    width: 100%;
+    height: 250px;
     object-fit: cover;
-    margin: 0 auto 1rem;
   }
 
   .team-member h3 {
+    margin: 1rem 0 0.5rem;
+  }
+
+  .member-title {
+    color: var(--color-primary);
+    font-weight: 600;
     margin-bottom: 0.5rem;
   }
 
-  .position {
-    color: var(--color-primary);
-    font-weight: 500;
+  .member-bio {
+    padding: 0 1.5rem 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .testimonials {
+    padding: 4rem 0;
+    text-align: center;
+  }
+
+  .testimonials h2 {
+    margin-bottom: 3rem;
+    font-size: 2.2rem;
+  }
+
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .testimonial {
+    background-color: var(--color-light);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+  }
+
+  .quote {
+    font-style: italic;
     margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+
+  .client {
+    font-weight: 600;
+    color: var(--color-primary);
   }
 
   @media (max-width: 900px) {
@@ -156,7 +227,7 @@ import MainLayout from '../layouts/MainLayout.astro';
       grid-template-columns: 1fr;
     }
 
-    .team-grid {
+    .team-grid, .testimonial-grid {
       grid-template-columns: 1fr;
     }
   }
