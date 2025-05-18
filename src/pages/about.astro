@@ -242,3 +242,114 @@ import MainLayout from '../layouts/MainLayout.astro';
     }
   }
 </style>
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="About Us | New Bridge Homes">
+  <div class="container" style="margin-top: 2rem;">
+    <realscout-office-listings 
+      agent-encoded-id="QWdlbnQtMjI1MDUw" 
+      sort-order="NEWEST" 
+      listing-status="For Sale" 
+      property-types="SFR,MF" 
+      price-min="500000" 
+      price-max="700000">
+    </realscout-office-listings>
+  </div>
+  <section class="page-header">
+    <div class="container">
+      <h1>About New Bridge Homes</h1>
+    </div>
+  </section>
+
+  <section class="about-content">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <h2>Las Vegas Living at Its Finest</h2>
+          <p>Founded in 2010, New Bridge Homes has established itself as a premier real estate developer in the Las Vegas area. Our mission is to create exceptional living spaces that blend luxury, comfort, and community.</p>
+          
+          <p>Our team of experienced professionals is dedicated to building homes that exceed your expectations and provide lasting value. We believe in creating spaces where families can thrive and memories can be made.</p>
+          
+          <h3>Our Values</h3>
+          <ul class="values-list">
+            <li>Quality Construction with attention to detail</li>
+            <li>Innovative Design that adapts to modern living</li>
+            <li>Customer Satisfaction from first visit to move-in and beyond</li>
+            <li>Community Focus with amenities that bring neighbors together</li>
+            <li>Environmental Responsibility with energy-efficient options</li>
+          </ul>
+        </div>
+        <div class="about-image">
+          <img src="/images/about-us.jpg" alt="New Bridge Homes Office" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="team-section">
+    <div class="container">
+      <h2>Our Team</h2>
+      <div class="team-grid">
+        <div class="team-member">
+          <div class="member-image">
+            <img src="/images/team-1.jpg" alt="Sarah Johnson" />
+          </div>
+          <h3>Sarah Johnson</h3>
+          <p class="member-title">CEO & Founder</p>
+          <p class="member-bio">With over 20 years in real estate development, Sarah brings vision and leadership to New Bridge Homes.</p>
+        </div>
+
+        <div class="team-member">
+          <div class="member-image">
+            <img src="/images/team-2.jpg" alt="Michael Roberts" />
+          </div>
+          <h3>Michael Roberts</h3>
+          <p class="member-title">Head of Architecture</p>
+          <p class="member-bio">Michael's award-winning designs have been featured in numerous architectural publications.</p>
+        </div>
+
+        <div class="team-member">
+          <div class="member-image">
+            <img src="/images/team-3.jpg" alt="Jennifer Wu" />
+          </div>
+          <h3>Jennifer Wu</h3>
+          <p class="member-title">Sales Director</p>
+          <p class="member-bio">Jennifer's dedication to customer satisfaction ensures a smooth buying experience.</p>
+        </div>
+
+        <div class="team-member">
+          <div class="member-image">
+            <img src="/images/team-4.jpg" alt="David Thompson" />
+          </div>
+          <h3>David Thompson</h3>
+          <p class="member-title">Construction Manager</p>
+          <p class="member-bio">David oversees all construction processes, maintaining our high standards of quality.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <div class="container">
+      <h2>What Our Clients Say</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial">
+          <p class="quote">We couldn't be happier with our New Bridge home. The quality and attention to detail exceeded our expectations.</p>
+          <p class="client">- The Martinez Family</p>
+        </div>
+
+        <div class="testimonial">
+          <p class="quote">The buying process was seamless from start to finish. The team at New Bridge was professional and responsive.</p>
+          <p class="client">- James & Lisa Brown</p>
+        </div>
+
+        <div class="testimonial">
+          <p class="quote">Our home is beautiful and the community amenities are everything they promised. We love living in New Bridge!</p>
+          <p class="client">- Rachel Wilson</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>
