@@ -1,45 +1,99 @@
 
 ---
-// Your component script goes here
+import MainLayout from '../layouts/MainLayout.astro';
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro Starter</title>
-  </head>
-  <body>
-    <main>
-      <h1>Welcome to <span class="text-gradient">Astro</span></h1>
-      <p>Start building your Astro site now!</p>
-    </main>
-  </body>
-</html>
+<MainLayout title="New Bridge Homes - Luxury Real Estate">
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Find Your Dream Home in New Bridge</h1>
+        <p>Discover exceptional properties in our beautiful planned community</p>
+        <a href="/listings" class="btn btn-primary">View Properties</a>
+      </div>
+    </div>
+  </section>
 
-<style>
-  main {
-    margin: auto;
-    padding: 1rem;
-    width: 800px;
-    max-width: calc(100% - 2rem);
-    font-family: system-ui, sans-serif;
-    line-height: 1.5;
-  }
-  h1 {
-    font-size: 3rem;
-    font-weight: 700;
-    line-height: 1;
-    text-align: center;
-    margin-bottom: 1em;
-  }
-  .text-gradient {
-    background-image: linear-gradient(45deg, rgb(124, 58, 237), rgb(219, 39, 119));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 400%;
-    background-position: 0%;
-  }
-</style>
+  <section class="featured-properties">
+    <div class="container">
+      <h2>Featured Properties</h2>
+      <div class="property-grid">
+        <!-- Property cards will go here -->
+        <div class="property-card">
+          <div class="property-image">
+            <img src="https://placehold.co/600x400" alt="Luxury Home" />
+          </div>
+          <div class="property-details">
+            <h3>Luxury Villa</h3>
+            <p class="price">$750,000</p>
+            <p class="address">123 New Bridge Ave</p>
+            <div class="property-features">
+              <span>4 Beds</span>
+              <span>3 Baths</span>
+              <span>2,500 sqft</span>
+            </div>
+            <a href="/listings/luxury-villa" class="btn btn-secondary">View Details</a>
+          </div>
+        </div>
+        
+        <div class="property-card">
+          <div class="property-image">
+            <img src="https://placehold.co/600x400" alt="Modern Townhouse" />
+          </div>
+          <div class="property-details">
+            <h3>Modern Townhouse</h3>
+            <p class="price">$550,000</p>
+            <p class="address">456 New Bridge Blvd</p>
+            <div class="property-features">
+              <span>3 Beds</span>
+              <span>2.5 Baths</span>
+              <span>1,800 sqft</span>
+            </div>
+            <a href="/listings/modern-townhouse" class="btn btn-secondary">View Details</a>
+          </div>
+        </div>
+        
+        <div class="property-card">
+          <div class="property-image">
+            <img src="https://placehold.co/600x400" alt="Family Home" />
+          </div>
+          <div class="property-details">
+            <h3>Family Home</h3>
+            <p class="price">$650,000</p>
+            <p class="address">789 New Bridge Court</p>
+            <div class="property-features">
+              <span>4 Beds</span>
+              <span>3 Baths</span>
+              <span>2,200 sqft</span>
+            </div>
+            <a href="/listings/family-home" class="btn btn-secondary">View Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="community-features">
+    <div class="container">
+      <h2>New Bridge Community</h2>
+      <div class="features-grid">
+        <div class="feature">
+          <h3>Parks & Recreation</h3>
+          <p>Beautiful walking trails, parks, and recreation facilities throughout the community.</p>
+        </div>
+        <div class="feature">
+          <h3>Top-Rated Schools</h3>
+          <p>Access to award-winning schools and educational facilities.</p>
+        </div>
+        <div class="feature">
+          <h3>Shopping & Dining</h3>
+          <p>Minutes from premium shopping and dining experiences.</p>
+        </div>
+        <div class="feature">
+          <h3>Community Events</h3>
+          <p>Regular community gatherings, farmers markets, and seasonal festivals.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>
