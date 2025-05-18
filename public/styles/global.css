@@ -410,9 +410,9 @@ h1, h2, h3, h4, h5 {
   border-left: 5px solid #3c763d;
 }
 
-/* Error Page Styles */
+/* 404 Error Page */
 .error-page {
-  padding: 5rem 0;
+  padding: 6rem 0;
   text-align: center;
 }
 
@@ -421,27 +421,29 @@ h1, h2, h3, h4, h5 {
   margin: 0 auto;
 }
 
-.error-page h1 {
+.error-content h1 {
   font-size: 8rem;
   color: var(--color-primary);
-  margin-bottom: 0;
   line-height: 1;
+  margin-bottom: 1rem;
 }
 
-.error-page h2 {
+.error-content h2 {
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
 }
 
-.error-page p {
+.error-content p {
   font-size: 1.2rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--color-gray);
 }
 
 .error-actions {
   display: flex;
   justify-content: center;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 /* Media Queries for Mobile Menu */
