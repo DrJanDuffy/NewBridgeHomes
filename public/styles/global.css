@@ -276,6 +276,70 @@ h1, h2, h3, h4, h5 {
   }
 }
 
+/* Listings Page */
+.listings-hero {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.listings-hero h1 {
+  font-size: 2.5rem;
+}
+
+.listings-filter {
+  background-color: var(--color-light);
+  padding: 1.5rem 0;
+  margin-bottom: 2rem;
+}
+
+.filter-container {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.filter-item {
+  flex: 1;
+  min-width: 200px;
+}
+
+.filter-item label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.filter-item select {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.listings-grid {
+  padding-bottom: 4rem;
+}
+
+.property-description {
+  margin: 0.5rem 0 1.5rem;
+  color: var(--color-dark);
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .filter-container {
+    flex-direction: column;
+  }
+  
+  .filter-item {
+    width: 100%;
+  }
+  
+  nav ul {
     gap: 1rem;
   }
 
