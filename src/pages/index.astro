@@ -18,39 +18,12 @@ import MainLayout from '../layouts/MainLayout.astro';
     </div>
   </section>
 
-  <!-- Quick Search Banner -->
+  <!-- Advanced Search Widget -->
   <section class="quick-search">
     <div class="container">
       <div class="search-container">
         <h2>Find Your Perfect Home</h2>
-        <div class="search-options">
-          <div class="search-item">
-            <label for="price-range">Price Range</label>
-            <select id="price-range">
-              <option value="500000-700000">$500,000 - $700,000</option>
-              <option value="700000-900000">$700,000 - $900,000</option>
-              <option value="900000-1100000">$900,000+</option>
-            </select>
-          </div>
-          <div class="search-item">
-            <label for="bedrooms">Bedrooms</label>
-            <select id="bedrooms">
-              <option value="2">2+ Bedrooms</option>
-              <option value="3">3+ Bedrooms</option>
-              <option value="4">4+ Bedrooms</option>
-            </select>
-          </div>
-          <div class="search-item">
-            <label for="property-type">Property Type</label>
-            <select id="property-type">
-              <option value="all">All Types</option>
-              <option value="house">Single Family</option>
-              <option value="townhome">Townhome</option>
-              <option value="condo">Condo</option>
-            </select>
-          </div>
-          <button class="btn btn-primary search-btn">Search Now</button>
-        </div>
+        <realscout-advanced-search agent-encoded-id="QWdlbnQtMjI1MDUw"></realscout-advanced-search>
       </div>
     </div>
   </section>
