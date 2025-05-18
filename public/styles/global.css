@@ -294,6 +294,13 @@ h1, h2, h3, h4, h5 {
   margin-bottom: 2rem;
 }
 
+.filter-results {
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: 500;
+  color: var(--color-primary);
+}
+
 .filter-container {
   display: flex;
   gap: 1rem;
