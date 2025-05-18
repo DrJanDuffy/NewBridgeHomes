@@ -1,0 +1,93 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="About Us | New Bridge Homes">
+  <section class="page-header">
+    <div class="container">
+      <h1>About New Bridge Homes</h1>
+    </div>
+  </section>
+
+  <section class="about-content">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <h2>Your Trusted Partner in Real Estate</h2>
+          <p>
+            Since our founding in 2010, New Bridge Homes has been dedicated to helping families find their perfect home in our beautiful planned community. With a focus on quality, service, and integrity, we've helped hundreds of happy homeowners start their new chapter in New Bridge.
+          </p>
+          <p>
+            Our team of experienced real estate professionals brings deep knowledge of the local market, combined with a passion for matching each client with their ideal property. We understand that buying a home is one of life's most significant decisions, and we're honored to be part of your journey.
+          </p>
+          <h3>Our Community Vision</h3>
+          <p>
+            New Bridge was designed to be more than just a collection of homes—it's a thriving community where residents enjoy exceptional amenities, beautiful surroundings, and a strong sense of belonging. From our walking trails and parks to community events and excellent schools, New Bridge offers the perfect balance of comfort, convenience, and connection.
+          </p>
+          <h3>Our Values</h3>
+          <ul class="values-list">
+            <li><strong>Quality:</strong> We represent only the finest properties built with superior craftsmanship.</li>
+            <li><strong>Integrity:</strong> We operate with transparency and honesty in every transaction.</li>
+            <li><strong>Service:</strong> We provide personalized attention and support throughout your real estate journey.</li>
+            <li><strong>Community:</strong> We're committed to fostering a vibrant, welcoming neighborhood for all residents.</li>
+          </ul>
+        </div>
+        <div class="about-image">
+          <img src="https://placehold.co/600x800" alt="New Bridge Homes Team" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="team-section">
+    <div class="container">
+      <h2>Meet Our Team</h2>
+      <div class="team-grid">
+        <div class="team-member">
+          <div class="member-image">
+            <img src="https://placehold.co/400x400" alt="Sarah Johnson" />
+          </div>
+          <h3>Sarah Johnson</h3>
+          <p class="member-title">Principal Broker</p>
+          <p class="member-bio">With over 15 years of real estate experience, Sarah leads our team with expertise and dedication to client satisfaction.</p>
+        </div>
+        <div class="team-member">
+          <div class="member-image">
+            <img src="https://placehold.co/400x400" alt="Michael Chen" />
+          </div>
+          <h3>Michael Chen</h3>
+          <p class="member-title">Sales Director</p>
+          <p class="member-bio">Michael's market knowledge and negotiation skills ensure our clients receive the best possible value.</p>
+        </div>
+        <div class="team-member">
+          <div class="member-image">
+            <img src="https://placehold.co/400x400" alt="Jessica Rodriguez" />
+          </div>
+          <h3>Jessica Rodriguez</h3>
+          <p class="member-title">Client Relations Manager</p>
+          <p class="member-bio">Jessica ensures a smooth experience for all clients, coordinating viewings and managing the purchase process.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="testimonials">
+    <div class="container">
+      <h2>What Our Clients Say</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial">
+          <div class="quote">"Working with New Bridge Homes was a fantastic experience from start to finish. They understood exactly what we were looking for and helped us find our dream home."</div>
+          <div class="client">- The Martinez Family</div>
+        </div>
+        <div class="testimonial">
+          <div class="quote">"The team's knowledge of the community and attention to detail made our homebuying process smooth and enjoyable. We couldn't be happier with our new home."</div>
+          <div class="client">- Robert & Emma Wilson</div>
+        </div>
+        <div class="testimonial">
+          <div class="quote">"As first-time homebuyers, we had a lot of questions. New Bridge Homes guided us through every step with patience and expertise. Highly recommended!"</div>
+          <div class="client">- James & Sophie Taylor</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>
