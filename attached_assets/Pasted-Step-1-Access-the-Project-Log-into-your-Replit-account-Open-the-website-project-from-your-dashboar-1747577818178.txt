@@ -1,0 +1,126 @@
+Step 1: Access the Project
+
+Log into your Replit account
+Open the website project from your dashboard
+Wait for the project to load completely
+
+Step 2: Locate the Team Page Files
+
+In the file explorer (usually on the left side), look for directories like:
+
+src/pages
+public/pages
+components
+views
+
+
+Find files that might contain team information, such as:
+
+team.html
+about.html
+team.js
+TeamPage.jsx
+team.php
+
+
+
+Step 3: Remove Existing Team Members
+
+Open the team page file
+Look for HTML/JSX/template code containing team member information
+Delete all team member sections/cards/divs, but preserve the overall container structure
+If there's a database connection or JSON data source for team members, clear those entries as well
+
+Step 4: Add Dr. Jan Duffy's Profile
+Add the following HTML/JSX for Dr. Jan Duffy (adjust format to match your site's existing structure):
+html<div class="team-member">
+  <div class="team-member-image">
+    <img src="images/team/jan-duffy.jpg" alt="Dr. Jan Duffy" />
+  </div>
+  <div class="team-member-info">
+    <h3>Dr. Jan Duffy</h3>
+    <p class="title">Licensed REALTOR®</p>
+    <p class="license">License# S.0197614.LLC</p>
+    <p class="company">Berkshire Hathaway HomeServices Nevada Properties</p>
+    <p class="credentials">Clinical Psychologist • Business Entrepreneur • Best-Selling Author</p>
+    <p class="bio">
+      Dr. Jan Duffy is a relationship-focused "FOREVER AGENT" who leverages her extensive background as a Clinical Psychologist, Business Entrepreneur, and Marketing Expert to provide exceptional service for buyers and sellers in the Las Vegas area. Specializing in luxury real estate, 55+ communities, divorce real estate transitions, and California-to-Las Vegas relocations, Dr. Duffy brings unmatched expertise and a strategic yet empathetic approach to every transaction.
+    </p>
+    <p class="specializations">
+      <strong>Areas of Expertise:</strong><br>
+      • Luxury Real Estate Transactions<br>
+      • 55+ Community Specialist<br>
+      • Divorce Real Estate Expert<br>
+      • California to Las Vegas Relocations<br>
+      • First-Time Home Buyer Support<br>
+      • Investment Properties<br>
+      • New Construction Sales and Consulting
+    </p>
+    <p class="service-areas">
+      <strong>Serving:</strong> Las Vegas, Henderson, North Las Vegas, Summerlin, Aliante, Centennial Hills, Tule Springs
+    </p>
+    <div class="contact-info">
+      <p><i class="fa fa-phone"></i> (702) 500-1955</p>
+      <p><i class="fa fa-envelope"></i> drjanduffy@bhhsnv.com</p>
+      <p><i class="fa fa-calendar"></i> <a href="https://calendly.com/drjanduffy">Schedule a Consultation</a></p>
+    </div>
+    <div class="social-links">
+      <a href="https://linkedin.com/in/drjanduffy" target="_blank"><i class="fa fa-linkedin"></i></a>
+      <a href="https://facebook.com/drduffyrealtorhenderson" target="_blank"><i class="fa fa-facebook"></i></a>
+    </div>
+  </div>
+</div>
+Step 5: Update Any Related Data Files
+If your site uses JSON or database for team information:
+
+Find the data file (like team.json or database config)
+Replace all entries with Dr. Duffy's information:
+
+json[
+  {
+    "id": 1,
+    "name": "Dr. Jan Duffy",
+    "title": "Licensed REALTOR®",
+    "license": "S.0197614.LLC",
+    "company": "Berkshire Hathaway HomeServices Nevada Properties",
+    "credentials": "Clinical Psychologist • Business Entrepreneur • Best-Selling Author",
+    "education": "Columbia Pacific University-CA",
+    "bio": "Dr. Jan Duffy is a relationship-focused \"FOREVER AGENT\" who leverages her extensive background as a Clinical Psychologist, Business Entrepreneur, and Marketing Expert to provide exceptional service for buyers and sellers in the Las Vegas area. Specializing in luxury real estate, 55+ communities, divorce real estate transitions, and California-to-Las Vegas relocations, Dr. Duffy brings unmatched expertise and a strategic yet empathetic approach to every transaction.",
+    "specializations": [
+      "Luxury Real Estate Transactions",
+      "55+ Community Specialist",
+      "Divorce Real Estate Expert",
+      "California to Las Vegas Relocations",
+      "First-Time Home Buyer Support",
+      "Investment Properties",
+      "New Construction Sales and Consulting"
+    ],
+    "serviceAreas": ["Las Vegas", "Henderson", "North Las Vegas", "Summerlin", "Aliante", "Centennial Hills", "Tule Springs"],
+    "phone": "(702) 500-1955",
+    "email": "drjanduffy@bhhsnv.com",
+    "calendly": "https://calendly.com/drjanduffy",
+    "image": "jan-duffy.jpg",
+    "social": {
+      "linkedin": "https://linkedin.com/in/drjanduffy",
+      "facebook": "https://facebook.com/drduffyrealtorhenderson"
+    }
+  }
+]
+Step 6: Upload Dr. Duffy's Image
+
+Create an images/team directory if it doesn't exist
+Upload a professional headshot of Dr. Duffy named jan-duffy.jpg
+Make sure the image is optimized (file size under 200KB, dimensions approximately 500x500px)
+
+Step 7: Test the Changes
+
+Click the "Run" button in Replit
+Navigate to the team page in the preview window
+Verify that only Dr. Duffy appears and the layout looks correct
+Test on mobile view using the responsive design mode in your browser
+
+Step 8: Deploy the Changes
+
+If your site uses version control, commit the changes with a message like "Update team page to feature Dr. Jan Duffy"
+Use the deployment method configured in your Replit project (could be automatic or manual)
+Verify the changes on the live site after deployment
