@@ -1,171 +1,504 @@
 
 ---
 import Layout from '../layouts/Layout.astro';
-import { Image } from 'astro:assets';
-import { SEO } from 'astro-seo';
 
-// SEO-optimized real estate keywords for Las Vegas market
-const keywords = [
-  "Las Vegas luxury realtor",
-  "Henderson Nevada homes for sale",
-  "55+ communities Las Vegas",
-  "Summerlin real estate expert",
-  "California to Las Vegas relocation",
-  "investment properties Nevada",
-  "North Las Vegas REALTOR",
-  "Berkshire Hathaway real estate agent"
-];
-
-// Define Dr. Jan Duffy's information with structured data-friendly format
+// Define Dr. Jan Duffy's information
 const teamMember = {
-  "@type": "RealEstateAgent",
   name: "Dr. Jan Duffy",
-  jobTitle: "Licensed REALTOR®",
+  title: "Licensed REALTOR®",
   license: "S.0197614.LLC",
-  worksFor: {
-    "@type": "RealEstateOrganization",
-    name: "Berkshire Hathaway HomeServices Nevada Properties",
-    url: "https://www.bhhsnv.com/"
-  },
-  description: "Dr. Jan Duffy is a dedicated REALTOR® with Berkshire Hathaway HomeServices Nevada Properties, specializing in luxury properties, investment opportunities, and 55+ communities throughout Las Vegas, Henderson, and Summerlin.",
-  expertise: "Luxury Real Estate Specialist • Investment Property Expert",
-  mainEntityOfPage: new URL(Astro.url.pathname, Astro.site).toString(),
-  knowsAbout: [
+  company: "Berkshire Hathaway HomeServices Nevada Properties",
+  credentials: "Luxury Real Estate Specialist • Investment Property Expert",
+  bio: "Dr. Jan Duffy is a relationship-focused \"FOREVER AGENT\" who leverages her extensive background in business and marketing to provide exceptional real estate services for buyers and sellers in the Las Vegas area. Specializing in luxury properties, 55+ communities, and relocation services, Dr. Duffy brings unmatched expertise and a strategic approach to every transaction.",
+  specializations: [
     "Luxury Real Estate Transactions",
-    "55+ Community Properties",
-    "Las Vegas Real Estate Market",
-    "California to Nevada Relocations",
-    "First-Time Home Buyer Guidance",
-    "New Construction Sales",
+    "55+ Community Specialist",
+    "Las Vegas Property Investments",
+    "California to Las Vegas Relocations",
+    "First-Time Home Buyer Support",
+    "New Construction Sales and Consulting",
     "Property Valuation and Market Analysis"
   ],
-  areaServed: [
-    {
-      "@type": "City",
-      name: "Las Vegas"
-    },
-    {
-      "@type": "City",
-      name: "Henderson"
-    },
-    {
-      "@type": "City",
-      name: "North Las Vegas"
-    },
-    {
-      "@type": "City",
-      name: "Summerlin"
-    },
-    {
-      "@type": "City",
-      name: "Aliante"
-    },
-    {
-      "@type": "City",
-      name: "Centennial Hills"
-    },
-    {
-      "@type": "City",
-      name: "Tule Springs"
-    }
-  ],
   serviceAreas: ["Las Vegas", "Henderson", "North Las Vegas", "Summerlin", "Aliante", "Centennial Hills", "Tule Springs"],
-  telephone: "(702) 500-1955",
+  phone: "(702) 500-1955",
   email: "drjanduffy@bhhsnv.com",
-  calendlyUrl: "https://calendly.com/drjanduffy",
-  image: {
-    "@type": "ImageObject",
-    url: "/images/team/jan-duffy.jpg",
-    width: 800,
-    height: 800,
-    caption: "Dr. Jan Duffy, Licensed REALTOR® with Berkshire Hathaway HomeServices Nevada Properties",
-    contentUrl: "/images/team/jan-duffy.jpg"
-  },
-  sameAs: [
-    "https://linkedin.com/in/drjanduffy",
-    "https://facebook.com/drduffyrealtorhenderson"
-  ]
+  calendly: "https://calendly.com/drjanduffy",
+  image: "/images/team/jan-duffy.jpg",
+  social: {
+    linkedin: "https://linkedin.com/in/drjanduffy",
+    facebook: "https://facebook.com/drduffyrealtorhenderson"
+  }
 };
 
-const title = `Meet Dr. Jan Duffy - Las Vegas Luxury Real Estate Expert | BHHS Nevada`;
+// SEO metadata
+const pageTitle = `Meet Dr. Jan Duffy - Las Vegas Luxury Real Estate Expert | BHHS Nevada`;
+const pageDescription = `Dr. Jan Duffy, licensed REALTOR® with Berkshire Hathaway HomeServices, specializes in luxury properties, 55+ communities, and investment opportunities in Las Vegas, Henderson, and Summerlin. License# S.0197614.LLC`;
+
+// FAQ data for rich results
+const faqs = [
+  {
+    question: "What areas of Las Vegas does Dr. Jan Duffy serve?",
+    answer: "Dr. Jan Duffy serves Las Vegas, Henderson, North Las Vegas, Summerlin, Aliante, Centennial Hills, and Tule Springs areas with comprehensive real estate services."
+  },
+  {
+    question: "What types of properties does Dr. Jan Duffy specialize in?",
+    answer: "Dr. Jan Duffy specializes in luxury properties, 55+ communities, investment properties, new construction, and homes for first-time buyers throughout the Las Vegas area."
+  },
+  {
+    question: "How can I schedule a consultation with Dr. Jan Duffy?",
+    answer: "You can schedule a consultation with Dr. Jan Duffy by calling (702) 500-1955, emailing drjanduffy@bhhsnv.com, or using her online scheduling system at calendly.com/drjanduffy."
+  }
+];
+
+// JSON-LD structured data for SEO
+const jsonLdData = {
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  "name": teamMember.name,
+  "jobTitle": teamMember.title,
+  "description": teamMember.bio,
+  "telephone": teamMember.phone,
+  "email": teamMember.email,
+  "url": "https://www.bhhsnv.com/agent/dr-jan-duffy",
+  "image": teamMember.image,
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Las Vegas",
+    "addressRegion": "NV"
+  },
+  "areaServed": teamMember.serviceAreas.map(area => ({
+    "@type": "City",
+    "name": area
+  })),
+  "knowsAbout": teamMember.specializations
+};
 ---
 
-<Layout title={title}>
-  <header class="page-header">
-    <div class="container">
-      <h1>Our Team</h1>
-      <p>Meet the experts who will help you find your dream home</p>
-    </div>
-  </header>
-
-  <main class="team-section">
-    <div class="container">
-      <div class="team-grid" itemscope itemtype="https://schema.org/RealEstateAgent">
-        <div class="team-member">
-          <div class="member-image">
-            <img src={teamMember.image.url} alt={teamMember.image.caption} width="800" height="800" />
+<Layout title={pageTitle}>
+  <main>
+    <!-- SEO-optimized metadata -->
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content="Dr. Jan Duffy, Las Vegas Realtor, Luxury Real Estate, 55+ Communities, Berkshire Hathaway HomeServices, Henderson Real Estate" />
+    
+    <!-- Schema.org JSON-LD structured data -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLdData)}></script>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h1>Meet Our Expert</h1>
+        <p class="subtitle">Exceptional real estate service in the Las Vegas Valley</p>
+      </div>
+    </section>
+    
+    <!-- Team Member Profile -->
+    <section class="profile">
+      <div class="container">
+        <div class="profile-card">
+          <div class="profile-image">
+            <img 
+              src={teamMember.image} 
+              alt={`Professional portrait of ${teamMember.name}, Las Vegas REALTOR`}
+              width="500"
+              height="500"
+            />
           </div>
-          <h3 itemprop="name">{teamMember.name}</h3>
-          <div class="member-title" itemprop="jobTitle">{teamMember.jobTitle}</div>
-          <div class="license">License: {teamMember.license}</div>
-          <div class="company" itemprop="worksFor" itemscope itemtype="https://schema.org/Organization">
-            <span itemprop="name">{teamMember.worksFor.name}</span>
-          </div>
-          
-          <div class="member-bio">
-            <div class="credentials" itemprop="knowsAbout">{teamMember.expertise}</div>
-            <p itemprop="description">{teamMember.description}</p>
+          <div class="profile-content">
+            <h2>{teamMember.name}</h2>
+            <p class="title">{teamMember.title}</p>
+            <p class="license">License# {teamMember.license}</p>
+            <p class="company">{teamMember.company}</p>
+            <p class="credentials">{teamMember.credentials}</p>
             
-            <div class="specializations">
-              <strong>Areas of Expertise:</strong>
+            <div class="bio">
+              <p>{teamMember.bio}</p>
+            </div>
+            
+            <div class="expertise">
+              <h3>Real Estate Expertise</h3>
               <ul>
-                {teamMember.knowsAbout.map(skill => (
-                  <li>{skill}</li>
+                {teamMember.specializations.map(specialty => (
+                  <li>{specialty}</li>
                 ))}
               </ul>
             </div>
             
-            <div class="service-areas">
-              <strong>Areas Served:</strong>
-              <p>{teamMember.serviceAreas.join(", ")}</p>
+            <div class="areas">
+              <h3>Areas Served</h3>
+              <p>{teamMember.serviceAreas.join(', ')}</p>
             </div>
             
-            <div class="contact-info">
-              <p>
-                <strong>Phone:</strong> 
-                <a href={`tel:${teamMember.telephone}`} itemprop="telephone">{teamMember.telephone}</a>
-              </p>
-              <p>
-                <strong>Email:</strong> 
-                <a href={`mailto:${teamMember.email}`} itemprop="email">{teamMember.email}</a>
-              </p>
-              <p>
-                <strong>Schedule a Consultation:</strong> 
-                <a href={teamMember.calendlyUrl} target="_blank" rel="noopener">Book Online</a>
-              </p>
-              
-              <div class="social-links">
-                {teamMember.sameAs.map(socialUrl => (
-                  <a href={socialUrl} target="_blank" rel="noopener noreferrer" aria-label={`Follow ${teamMember.name} on ${socialUrl.includes('linkedin') ? 'LinkedIn' : 'Facebook'}`}>
-                    <i class={`fa fa-${socialUrl.includes('linkedin') ? 'linkedin' : 'facebook'}`}></i>
-                  </a>
-                ))}
-              </div>
+            <div class="contact">
+              <h3>Contact Information</h3>
+              <p><i>Phone:</i> <a href={`tel:${teamMember.phone}`}>{teamMember.phone}</a></p>
+              <p><i>Email:</i> <a href={`mailto:${teamMember.email}`}>{teamMember.email}</a></p>
+              <p><i>Schedule:</i> <a href={teamMember.calendly}>Book a Consultation</a></p>
+            </div>
+            
+            <div class="social">
+              <a href={teamMember.social.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a href={teamMember.social.facebook} target="_blank" rel="noopener noreferrer">Facebook</a>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
+    
+    <!-- Call to Action -->
+    <section class="cta">
+      <div class="container">
+        <h2>Ready to Find Your Dream Home?</h2>
+        <p>Connect with Dr. Jan Duffy today to discuss your real estate goals.</p>
+        <div class="buttons">
+          <a href={`tel:${teamMember.phone}`} class="button primary">Call Now</a>
+          <a href={teamMember.calendly} class="button secondary">Schedule Consultation</a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="faq">
+      <div class="container">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list">
+          {faqs.map((faq, index) => (
+            <div class="faq-item">
+              <h3>{faq.question}</h3>
+              <p>{faq.answer}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   </main>
 </Layout>
 
 <style>
-  @import "../public/styles/team.css";
+  /* Include all styles inline to avoid external file dependencies */
+  /* These styles will be processed by Astro's built-in CSS handling */
   
-  .page-header {
-    background-color: var(--color-primary);
-    color: white;
-    padding: 4rem 0 2rem;
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  .hero {
+    background: linear-gradient(to right, #f0f4ff, #e6f0ff);
+    padding: 4rem 0;
     text-align: center;
   }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+    color: #1a365d;
+    margin-bottom: 1rem;
+  }
+  
+  .hero .subtitle {
+    font-size: 1.25rem;
+    color: #4a5568;
+  }
+  
+  .profile {
+    padding: 4rem 0;
+  }
+  
+  .profile-card {
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  @media (min-width: 768px) {
+    .profile-card {
+      flex-direction: row;
+    }
+  }
+  
+  .profile-image {
+    flex: 0 0 100%;
+  }
+  
+  @media (min-width: 768px) {
+    .profile-image {
+      flex: 0 0 40%;
+    }
+  }
+  
+  .profile-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .profile-content {
+    flex: 1;
+    padding: 2rem;
+  }
+  
+  .profile-content h2 {
+    font-size: 2rem;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+  }
+  
+  .profile-content .title {
+    font-size: 1.25rem;
+    color: #3182ce;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+  
+  .profile-content .license,
+  .profile-content .company {
+    color: #718096;
+    margin-bottom: 0.25rem;
+  }
+  
+  .profile-content .credentials {
+    color: #4a5568;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+  }
+  
+  .bio {
+    margin-bottom: 2rem;
+  }
+  
+  .bio p {
+    color: #2d3748;
+    line-height: 1.6;
+  }
+  
+  .expertise {
+    margin-bottom: 2rem;
+  }
+  
+  .expertise h3,
+  .areas h3,
+  .contact h3 {
+    font-size: 1.25rem;
+    color: #2d3748;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+  
+  .expertise ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .expertise li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #4a5568;
+  }
+  
+  .expertise li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #38a169;
+    font-weight: bold;
+  }
+  
+  .areas {
+    margin-bottom: 2rem;
+  }
+  
+  .areas p {
+    color: #4a5568;
+  }
+  
+  .contact {
+    margin-bottom: 2rem;
+  }
+  
+  .contact p {
+    margin-bottom: 0.5rem;
+  }
+  
+  .contact a {
+    color: #3182ce;
+    text-decoration: none;
+  }
+  
+  .contact a:hover {
+    text-decoration: underline;
+  }
+  
+  .social {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .social a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: #f7fafc;
+    color: #4a5568;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+  
+  .social a:hover {
+    background: #edf2f7;
+    color: #2c5282;
+  }
+  
+  .cta {
+    background: linear-gradient(to right, #2b6cb0, #4299e1);
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+    margin: 4rem 0;
+  }
+  
+  .cta h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .cta p {
+    margin-bottom: 2rem;
+    font-size: 1.25rem;
+    opacity: 0.9;
+  }
+  
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  @media (min-width: 640px) {
+    .buttons {
+      flex-direction: row;
+    }
+  }
+  
+  .button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  
+  .button.primary {
+    background: white;
+    color: #2b6cb0;
+  }
+  
+  .button.primary:hover {
+    background: #f7fafc;
+  }
+  
+  .button.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+  }
+  
+  .button.secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .faq {
+    padding: 4rem 0;
+  }
+  
+  .faq h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #2d3748;
+  }
+  
+  .faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .faq-item {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  .faq-item h3 {
+    font-size: 1.25rem;
+    color: #2d3748;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+  }
+  
+  .faq-item p {
+    color: #4a5568;
+    line-height: 1.6;
+  }
+  
+  /* Advanced SEO styles for Core Web Vitals optimization */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 </style>
+
+<script is:inline>
+  // Simple script to enhance FAQ interactions
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+      const question = item.querySelector('h3');
+      const answer = item.querySelector('p');
+      
+      // Initially hide answers
+      answer.style.display = 'none';
+      
+      // Add click functionality
+      question.addEventListener('click', () => {
+        const isOpen = answer.style.display === 'block';
+        answer.style.display = isOpen ? 'none' : 'block';
+        question.style.color = isOpen ? '#2d3748' : '#3182ce';
+      });
+      
+      // Add visual indicator
+      question.style.cursor = 'pointer';
+      question.style.position = 'relative';
+      question.style.paddingRight = '1.5rem';
+      
+      const indicator = document.createElement('span');
+      indicator.textContent = '+';
+      indicator.style.position = 'absolute';
+      indicator.style.right = '0';
+      indicator.style.top = '0';
+      indicator.style.fontWeight = 'bold';
+      question.appendChild(indicator);
+    });
+  });
+</script>
