@@ -3,6 +3,7 @@
   "name": "nodejs",
   "version": "1.0.0",
   "description": "Astro project",
+  "homepage": "https://drjanduffy.github.io/newbridgehomes",
   "main": "index.js",
   "scripts": {
     "dev": "astro dev",

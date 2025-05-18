@@ -11,7 +11,7 @@ channel = "stable-22_11"
 
 [deployment]
 run = ["sh", "-c", "npx serve dist"]
-deploymentTarget = "autoscale"
+deploymentTarget = "static"
 ignorePorts = false
 build = ["sh", "-c", "npm run build"]
 
