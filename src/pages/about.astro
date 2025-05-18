@@ -4,6 +4,16 @@ import MainLayout from '../layouts/MainLayout.astro';
 ---
 
 <MainLayout title="About Us | New Bridge Homes">
+  <div class="container" style="margin-top: 2rem;">
+    <realscout-office-listings 
+      agent-encoded-id="QWdlbnQtMjI1MDUw" 
+      sort-order="NEWEST" 
+      listing-status="For Sale" 
+      property-types="SFR,MF" 
+      price-min="500000" 
+      price-max="700000">
+    </realscout-office-listings>
+  </div>
   <section class="page-header">
     <div class="container">
       <h1>About New Bridge Homes</h1>
