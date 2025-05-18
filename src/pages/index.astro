@@ -1,34 +1,70 @@
+
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 ---
 
 <MainLayout title="New Bridge Homes For Sale">
-  <div class="container" style="margin-top: 2rem;">
-    <realscout-office-listings 
-      agent-encoded-id="QWdlbnQtMjI1MDUw" 
-      sort-order="NEWEST" 
-      listing-status="For Sale" 
-      property-types="SFR,MF" 
-      price-min="500000" 
-      price-max="700000">
-    </realscout-office-listings>
-  </div>
+  <!-- Hero Section with Call to Action -->
   <section class="hero" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/images/hero-home.jpg') no-repeat center center; background-size: cover;">
     <div class="container">
       <div class="hero-content">
         <h1>Find Your Dream Home in New Bridge</h1>
         <p>Discover exceptional properties in our beautiful planned community</p>
-        <a href="/listings" class="btn btn-primary">View Properties</a>
+        <div class="hero-cta">
+          <a href="/listings" class="btn btn-primary">View Properties</a>
+          <a href="/contact" class="btn btn-secondary">Contact Us</a>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- Quick Search Banner -->
+  <section class="quick-search">
+    <div class="container">
+      <div class="search-container">
+        <h2>Find Your Perfect Home</h2>
+        <div class="search-options">
+          <div class="search-item">
+            <label for="price-range">Price Range</label>
+            <select id="price-range">
+              <option value="500000-700000">$500,000 - $700,000</option>
+              <option value="700000-900000">$700,000 - $900,000</option>
+              <option value="900000-1100000">$900,000+</option>
+            </select>
+          </div>
+          <div class="search-item">
+            <label for="bedrooms">Bedrooms</label>
+            <select id="bedrooms">
+              <option value="2">2+ Bedrooms</option>
+              <option value="3">3+ Bedrooms</option>
+              <option value="4">4+ Bedrooms</option>
+            </select>
+          </div>
+          <div class="search-item">
+            <label for="property-type">Property Type</label>
+            <select id="property-type">
+              <option value="all">All Types</option>
+              <option value="house">Single Family</option>
+              <option value="townhome">Townhome</option>
+              <option value="condo">Condo</option>
+            </select>
+          </div>
+          <button class="btn btn-primary search-btn">Search Now</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Properties with improved visual appeal -->
   <section class="featured-properties">
     <div class="container">
-      <h2>Featured Properties</h2>
+      <div class="section-header">
+        <h2>Featured Properties</h2>
+        <p>Handpicked homes that represent the best of New Bridge</p>
+      </div>
       <div class="property-grid">
-        <!-- Property cards will go here -->
-        <div class="property-card">
+        <div class="property-card premium">
+          <div class="property-badge">Featured</div>
           <div class="property-image">
             <img src="/images/property-1.jpg" alt="Luxury Home" />
           </div>
@@ -37,10 +73,11 @@ import MainLayout from '../layouts/MainLayout.astro';
             <p class="price">$750,000</p>
             <p class="address">123 New Bridge Ave</p>
             <div class="property-features">
-              <span>4 Beds</span>
-              <span>3 Baths</span>
-              <span>2,500 sqft</span>
+              <span><i class="fa fa-bed"></i> 4 Beds</span>
+              <span><i class="fa fa-bath"></i> 3 Baths</span>
+              <span><i class="fa fa-home"></i> 2,500 sqft</span>
             </div>
+            <p class="property-description">Stunning luxury villa with high-end finishes, gourmet kitchen, and resort-style backyard.</p>
             <a href="/listings/luxury-villa" class="btn btn-secondary">View Details</a>
           </div>
         </div>
@@ -54,10 +91,11 @@ import MainLayout from '../layouts/MainLayout.astro';
             <p class="price">$550,000</p>
             <p class="address">456 New Bridge Blvd</p>
             <div class="property-features">
-              <span>3 Beds</span>
-              <span>2.5 Baths</span>
-              <span>1,800 sqft</span>
+              <span><i class="fa fa-bed"></i> 3 Beds</span>
+              <span><i class="fa fa-bath"></i> 2.5 Baths</span>
+              <span><i class="fa fa-home"></i> 1,800 sqft</span>
             </div>
+            <p class="property-description">Contemporary townhouse with open floor plan, designer finishes, and private patio.</p>
             <a href="/listings/modern-townhouse" class="btn btn-secondary">View Details</a>
           </div>
         </div>
@@ -71,38 +109,120 @@ import MainLayout from '../layouts/MainLayout.astro';
             <p class="price">$650,000</p>
             <p class="address">789 New Bridge Court</p>
             <div class="property-features">
-              <span>4 Beds</span>
-              <span>3 Baths</span>
-              <span>2,200 sqft</span>
+              <span><i class="fa fa-bed"></i> 4 Beds</span>
+              <span><i class="fa fa-bath"></i> 3 Baths</span>
+              <span><i class="fa fa-home"></i> 2,200 sqft</span>
             </div>
+            <p class="property-description">Spacious family home with bonus room, large backyard, and updated kitchen.</p>
             <a href="/listings/family-home" class="btn btn-secondary">View Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="view-all-container">
+        <a href="/listings" class="btn btn-primary view-all">View All Properties</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community Highlights -->
+  <section class="community-highlights">
+    <div class="container">
+      <div class="section-header">
+        <h2>Experience New Bridge Living</h2>
+        <p>A master-planned community designed for modern lifestyles</p>
+      </div>
+      <div class="highlights-grid">
+        <div class="highlight-item">
+          <img src="https://images.unsplash.com/photo-1515263487990-61b07816b324?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Parks and Recreation">
+          <div class="highlight-content">
+            <h3>Parks & Recreation</h3>
+            <p>Over 50 acres of green space with walking trails, playgrounds, and sports facilities.</p>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1722&q=80" alt="Education">
+          <div class="highlight-content">
+            <h3>Top-Rated Schools</h3>
+            <p>Award-winning schools within walking distance, offering exceptional education.</p>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Shopping">
+          <div class="highlight-content">
+            <h3>Shopping & Dining</h3>
+            <p>Boutique shops and gourmet restaurants just minutes from your doorstep.</p>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1969&q=80" alt="Community Events">
+          <div class="highlight-content">
+            <h3>Community Events</h3>
+            <p>Year-round events foster connections among neighbors and build community.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="community-features">
+  <!-- Testimonials Section -->
+  <section class="testimonials">
     <div class="container">
-      <h2>New Bridge Community</h2>
-      <div class="features-grid">
-        <div class="feature">
-          <h3>Parks & Recreation</h3>
-          <p>Beautiful walking trails, parks, and recreation facilities throughout the community.</p>
+      <div class="section-header">
+        <h2>What Our Homeowners Say</h2>
+        <p>Hear from people who've found their perfect home in New Bridge</p>
+      </div>
+      <div class="testimonial-slider">
+        <div class="testimonial">
+          <div class="quote">
+            "We couldn't be happier with our New Bridge home. The community amenities and quality of construction exceeded all our expectations."
+          </div>
+          <div class="client">— Sarah & Michael Johnson</div>
         </div>
-        <div class="feature">
-          <h3>Top-Rated Schools</h3>
-          <p>Access to award-winning schools and educational facilities.</p>
+        <div class="testimonial">
+          <div class="quote">
+            "Moving to New Bridge was the best decision for our family. The schools are excellent and there are so many activities for the kids."
+          </div>
+          <div class="client">— The Rodriguez Family</div>
         </div>
-        <div class="feature">
-          <h3>Shopping & Dining</h3>
-          <p>Minutes from premium shopping and dining experiences.</p>
+        <div class="testimonial">
+          <div class="quote">
+            "As empty nesters, we wanted a home that's both beautiful and low-maintenance. Our New Bridge townhome is perfect in every way."
+          </div>
+          <div class="client">— Robert & Carol Thompson</div>
         </div>
-        <div class="feature">
-          <h3>Community Events</h3>
-          <p>Regular community gatherings, farmers markets, and seasonal festivals.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to Find Your New Home?</h2>
+        <p>Our team of experienced real estate professionals is here to help you every step of the way.</p>
+        <div class="cta-buttons">
+          <a href="/listings" class="btn btn-primary">Browse Listings</a>
+          <a href="/team" class="btn btn-secondary">Meet Our Team</a>
         </div>
       </div>
     </div>
   </section>
 </MainLayout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Handle search button click
+    const searchBtn = document.querySelector('.search-btn');
+    if (searchBtn) {
+      searchBtn.addEventListener('click', function() {
+        const priceRange = document.getElementById('price-range').value;
+        const bedrooms = document.getElementById('bedrooms').value;
+        const propertyType = document.getElementById('property-type').value;
+        
+        // In a real app, you would use these values to filter properties
+        // For now, just redirect to listings page
+        window.location.href = `/listings?price=${priceRange}&beds=${bedrooms}&type=${propertyType}`;
+      });
+    }
+  });
+</script>
