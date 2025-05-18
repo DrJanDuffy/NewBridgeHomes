@@ -15,7 +15,7 @@ deploymentTarget = "static"
 publicDir = "dist"
 
 [workflows]
-runButton = "Run"
+runButton = "Preview Site"
 
 [[workflows.workflow]]
 name = "Run"
