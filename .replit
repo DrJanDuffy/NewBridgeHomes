@@ -13,9 +13,10 @@ channel = "stable-22_11"
 build = ["sh", "-c", "npm run build"]
 deploymentTarget = "static"
 publicDir = "dist"
+run = ["sh", "-c", "npx serve dist"]
 
 [workflows]
-runButton = "Run"
+runButton = "Run Site"
 
 [[workflows.workflow]]
 name = "Run"
@@ -34,6 +35,24 @@ mode = "sequential"
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "npx serve dist -l 5000"
+
+[[workflows.workflow]]
+name = "Run Site"
+author = 22930014
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm run dev"
+
+[[workflows.workflow]]
+name = "Preview Build"
+author = 22930014
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm run build && npx serve dist -l 3000"
 
 [[ports]]
 localPort = 3000
@@ -74,3 +93,11 @@ externalPort = 6000
 [[ports]]
 localPort = 5005
 externalPort = 6800
+
+[[ports]]
+localPort = 35339
+externalPort = 8008
+
+[[ports]]
+localPort = 43699
+externalPort = 8000
