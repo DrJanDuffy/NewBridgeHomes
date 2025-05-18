@@ -1,0 +1,163 @@
+
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="About Us | New Bridge Homes">
+  <section class="about-hero">
+    <div class="container">
+      <h1>About New Bridge Homes</h1>
+      <p>Building exceptional properties in beautiful communities since 2005</p>
+    </div>
+  </section>
+
+  <section class="about-content">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <h2>Our Story</h2>
+          <p>New Bridge Homes was founded with a simple mission: to create exceptional living spaces in thriving communities. For over 15 years, we've been dedicated to building high-quality homes that combine modern design, premium materials, and thoughtful layouts.</p>
+          
+          <p>Our team of experienced professionals is committed to excellence in every aspect of home construction and sales. We believe that a home is more than just a building—it's where life happens, memories are made, and futures are built.</p>
+          
+          <h2>Our Approach</h2>
+          <p>At New Bridge Homes, we take a comprehensive approach to residential development:</p>
+          
+          <ul>
+            <li><strong>Quality Construction:</strong> We use only premium materials and work with skilled craftsmen.</li>
+            <li><strong>Thoughtful Design:</strong> Our homes feature functional layouts and elegant aesthetics.</li>
+            <li><strong>Community Focus:</strong> We develop in areas with excellent amenities and growth potential.</li>
+            <li><strong>Customer Service:</strong> We provide exceptional support throughout the buying process.</li>
+          </ul>
+        </div>
+        
+        <div class="about-image">
+          <img src="https://placehold.co/600x800" alt="New Bridge Homes Team" />
+        </div>
+      </div>
+      
+      <div class="team-section">
+        <h2>Our Leadership Team</h2>
+        <div class="team-grid">
+          <div class="team-member">
+            <img src="https://placehold.co/300x300" alt="Team Member" />
+            <h3>Jane Smith</h3>
+            <p class="position">Founder & CEO</p>
+            <p>With over 25 years in real estate development, Jane leads our company vision and growth strategy.</p>
+          </div>
+          
+          <div class="team-member">
+            <img src="https://placehold.co/300x300" alt="Team Member" />
+            <h3>John Davis</h3>
+            <p class="position">Chief Architect</p>
+            <p>John oversees all architectural design, ensuring our homes are both beautiful and functional.</p>
+          </div>
+          
+          <div class="team-member">
+            <img src="https://placehold.co/300x300" alt="Team Member" />
+            <h3>Sarah Johnson</h3>
+            <p class="position">Sales Director</p>
+            <p>Sarah leads our sales team with a focus on creating exceptional experiences for our clients.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .about-hero {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://placehold.co/1200x300') no-repeat center center;
+    background-size: cover;
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .about-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 3rem;
+    margin-bottom: 4rem;
+  }
+
+  .about-text {
+    line-height: 1.7;
+  }
+
+  .about-text p {
+    margin-bottom: 1.5rem;
+  }
+
+  .about-text ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-text li {
+    margin-bottom: 0.5rem;
+  }
+
+  .about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .team-section {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .team-section h2 {
+    margin-bottom: 2rem;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .team-member {
+    background-color: var(--color-light);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 1rem;
+  }
+
+  .team-member h3 {
+    margin-bottom: 0.5rem;
+  }
+
+  .position {
+    color: var(--color-primary);
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 900px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .team-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
