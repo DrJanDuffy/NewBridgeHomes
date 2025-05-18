@@ -1,0 +1,146 @@
+Open src/pages/listings/index.astro and add the following content:
+astro---
+import MainLayout from '../../layouts/MainLayout.astro';
+
+// This would normally come from a database or CMS
+const properties = [
+  {
+    id: 'luxury-villa',
+    title: 'Luxury Villa',
+    price: 750000,
+    address: '123 New Bridge Ave',
+    beds: 4,
+    baths: 3,
+    sqft: 2500,
+    image: 'https://placehold.co/600x400',
+    description: 'Stunning luxury villa with modern amenities, spacious rooms, and beautiful garden. Perfect for families looking for comfort and elegance.'
+  },
+  {
+    id: 'modern-townhouse',
+    title: 'Modern Townhouse',
+    price: 550000,
+    address: '456 New Bridge Blvd',
+    beds: 3,
+    baths: 2.5,
+    sqft: 1800,
+    image: 'https://placehold.co/600x400',
+    description: 'Contemporary townhouse with open floor plan, high ceilings, and premium finishes. Conveniently located near shops and restaurants.'
+  },
+  {
+    id: 'family-home',
+    title: 'Family Home',
+    price: 650000,
+    address: '789 New Bridge Court',
+    beds: 4,
+    baths: 3,
+    sqft: 2200,
+    image: 'https://placehold.co/600x400',
+    description: 'Spacious family home in a quiet cul-de-sac. Features include a large backyard, updated kitchen, and comfortable living spaces.'
+  },
+  {
+    id: 'cozy-cottage',
+    title: 'Cozy Cottage',
+    price: 450000,
+    address: '321 New Bridge Lane',
+    beds: 2,
+    baths: 2,
+    sqft: 1500,
+    image: 'https://placehold.co/600x400',
+    description: 'Charming cottage with character and modern updates. Perfect for first-time buyers or downsizers looking for quality and comfort.'
+  },
+  {
+    id: 'executive-estate',
+    title: 'Executive Estate',
+    price: 950000,
+    address: '555 New Bridge Parkway',
+    beds: 5,
+    baths: 4.5,
+    sqft: 3800,
+    image: 'https://placehold.co/600x400',
+    description: 'Impressive executive home with luxury finishes, gourmet kitchen, home theater, and resort-style backyard with pool.'
+  },
+  {
+    id: 'downtown-condo',
+    title: 'Downtown Condo',
+    price: 350000,
+    address: '888 New Bridge Center',
+    beds: 2,
+    baths: 2,
+    sqft: 1200,
+    image: 'https://placehold.co/600x400',
+    description: 'Modern condo in the heart of downtown. Features include floor-to-ceiling windows, balcony with views, and secure parking.'
+  }
+];
+---
+
+<MainLayout title="Properties For Sale | New Bridge Homes">
+  <section class="listings-hero">
+    <div class="container">
+      <h1>Available Properties</h1>
+      <p>Find your perfect home in the New Bridge community</p>
+    </div>
+  </section>
+
+  <section class="listings-filter">
+    <div class="container">
+      <div class="filter-container">
+        <div class="filter-item">
+          <label for="price">Price Range</label>
+          <select id="price" name="price">
+            <option value="">Any Price</option>
+            <option value="300000-500000">$300,000 - $500,000</option>
+            <option value="500001-700000">$500,001 - $700,000</option>
+            <option value="700001-1000000">$700,001 - $1,000,000</option>
+          </select>
+        </div>
+        <div class="filter-item">
+          <label for="beds">Bedrooms</label>
+          <select id="beds" name="beds">
+            <option value="">Any</option>
+            <option value="2">2+</option>
+            <option value="3">3+</option>
+            <option value="4">4+</option>
+            <option value="5">5+</option>
+          </select>
+        </div>
+        <div class="filter-item">
+          <label for="baths">Bathrooms</label>
+          <select id="baths" name="baths">
+            <option value="">Any</option>
+            <option value="1">1+</option>
+            <option value="2">2+</option>
+            <option value="3">3+</option>
+            <option value="4">4+</option>
+          </select>
+        </div>
+        <button class="btn btn-primary">Apply Filters</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="listings-grid">
+    <div class="container">
+      <div class="property-grid">
+        {properties.map((property) => (
+          <div class="property-card">
+            <div class="property-image">
+              <img src={property.image} alt={property.title} />
+            </div>
+            <div class="property-details">
+              <h3>{property.title}</h3>
+              <p class="price">${property.price.toLocaleString()}</p>
+              <p class="address">{property.address}</p>
+              <div class="property-features">
+                <span>{property.beds} Beds</span>
+                <span>{property.baths} Baths</span>
+                <span>{property.sqft.toLocaleString()} sqft</span>
+              </div>
+              <p class="property-description">{property.description.substring(0, 100)}...</p>
+              <a href={`/listings/${property.id}`} class="btn btn-secondary">View Details</a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</MainLayout>
