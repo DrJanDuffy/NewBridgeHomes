@@ -1,4 +1,5 @@
 
+run = "npx serve dist"
 entrypoint = "src/pages/index.astro"
 modules = ["nodejs-22"]
 hidden = [".config", "package-lock.json"]
@@ -10,15 +11,18 @@ requiredFiles = [".replit", "replit.nix", "package.json", "package-lock.json"]
 channel = "stable-22_11"
 
 [deployment]
-deploymentTarget = "cloud_run"
-ignorePorts = false
-build = "npm run build"
-run = "npm run replit"
+build = ["npm", "run", "build"]
+deploymentTarget = "static"
+publicDir = "dist"
 
-[[ports]]
-localPort = 3000
-externalPort = 3000
+[workflows]
+runButton = "Run"
 
-[[ports]]
-localPort = 5000
-externalPort = 80
+[[workflows.workflow]]
+name = "Run"
+author = 22930014
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm run dev"
