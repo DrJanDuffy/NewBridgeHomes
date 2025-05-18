@@ -3,37 +3,51 @@
 import MainLayout from '../layouts/MainLayout.astro';
 
 // Define the team member data
-const teamMembers = [
+const teamMember = {
+  name: "Dr. Jan Duffy",
+  title: "Licensed REALTOR®",
+  license: "S.0197614.LLC",
+  company: "Berkshire Hathaway HomeServices Nevada Properties",
+  credentials: "Clinical Psychologist • Business Entrepreneur • Best-Selling Author",
+  bio: "Dr. Jan Duffy is a relationship-focused \"FOREVER AGENT\" who leverages her extensive background as a Clinical Psychologist, Business Entrepreneur, and Marketing Expert to provide exceptional service for buyers and sellers in the Las Vegas area. Specializing in luxury real estate, 55+ communities, divorce real estate transitions, and California-to-Las Vegas relocations, Dr. Duffy brings unmatched expertise and a strategic yet empathetic approach to every transaction.",
+  specializations: [
+    "Luxury Real Estate Transactions",
+    "55+ Community Specialist",
+    "Divorce Real Estate Expert",
+    "California to Las Vegas Relocations",
+    "First-Time Home Buyer Support",
+    "Investment Properties",
+    "New Construction Sales and Consulting"
+  ],
+  serviceAreas: ["Las Vegas", "Henderson", "North Las Vegas", "Summerlin", "Aliante", "Centennial Hills", "Tule Springs"],
+  phone: "(702) 500-1955",
+  email: "drjanduffy@bhhsnv.com",
+  calendly: "https://calendly.com/drjanduffy",
+  image: "/images/team/jan-duffy.jpg",
+  social: {
+    linkedin: "https://linkedin.com/in/drjanduffy",
+    facebook: "https://facebook.com/drduffyrealtorhenderson"
+  }
+};
+
+// FAQ items for SEO
+const faqs = [
   {
-    name: "Dr. Jan Duffy",
-    title: "Licensed REALTOR®",
-    license: "S.0197614.LLC",
-    company: "Berkshire Hathaway HomeServices Nevada Properties",
-    credentials: "Clinical Psychologist • Business Entrepreneur • Best-Selling Author",
-    bio: "Dr. Jan Duffy is a relationship-focused \"FOREVER AGENT\" who leverages her extensive background as a Clinical Psychologist, Business Entrepreneur, and Marketing Expert to provide exceptional service for buyers and sellers in the Las Vegas area. Specializing in luxury real estate, 55+ communities, divorce real estate transitions, and California-to-Las Vegas relocations, Dr. Duffy brings unmatched expertise and a strategic yet empathetic approach to every transaction.",
-    specializations: [
-      "Luxury Real Estate Transactions",
-      "55+ Community Specialist",
-      "Divorce Real Estate Expert",
-      "California to Las Vegas Relocations",
-      "First-Time Home Buyer Support",
-      "Investment Properties",
-      "New Construction Sales and Consulting"
-    ],
-    serviceAreas: ["Las Vegas", "Henderson", "North Las Vegas", "Summerlin", "Aliante", "Centennial Hills", "Tule Springs"],
-    phone: "(702) 500-1955",
-    email: "drjanduffy@bhhsnv.com",
-    calendly: "https://calendly.com/drjanduffy",
-    image: "/images/team/jan-duffy.jpg",
-    social: {
-      linkedin: "https://linkedin.com/in/drjanduffy",
-      facebook: "https://facebook.com/drduffyrealtorhenderson"
-    }
+    question: "What areas of Las Vegas does Dr. Jan Duffy serve?",
+    answer: "Dr. Jan Duffy serves Las Vegas, Henderson, North Las Vegas, Summerlin, Aliante, Centennial Hills, and Tule Springs areas with comprehensive real estate services."
+  },
+  {
+    question: "What types of properties does Dr. Jan Duffy specialize in?",
+    answer: "Dr. Jan Duffy specializes in luxury properties, 55+ communities, investment properties, new construction, and homes for first-time buyers throughout the Las Vegas area."
+  },
+  {
+    question: "How can I schedule a consultation with Dr. Jan Duffy?",
+    answer: "You can schedule a consultation with Dr. Jan Duffy by calling (702) 500-1955, emailing drjanduffy@bhhsnv.com, or using her online scheduling system at calendly.com/drjanduffy."
   }
 ];
 ---
 
-<MainLayout title="Our Team | New Bridge Homes For Sale">
+<MainLayout title="Meet Dr. Jan Duffy | Las Vegas Luxury Real Estate Expert">
   <section class="page-header">
     <div class="container">
       <h1>Our Team</h1>
@@ -43,49 +57,62 @@ const teamMembers = [
   <section class="team-section">
     <div class="container">
       <div class="section-header">
-        <h2>Meet Our Experts</h2>
-        <p>Our dedicated team of professionals is committed to providing exceptional service for all your real estate needs.</p>
+        <h2>Meet Our Expert</h2>
+        <p>Our dedicated professional is committed to providing exceptional service for all your real estate needs in Las Vegas.</p>
       </div>
       
       <div class="team-grid">
-        {teamMembers.map((member) => (
-          <div class="team-member">
-            <div class="member-image">
-              <img src={member.image} alt={member.name} />
-            </div>
-            <h3>{member.name}</h3>
-            <p class="member-title">{member.title}</p>
-            <p class="license">License# {member.license}</p>
-            <p class="company">{member.company}</p>
+        <div class="team-member">
+          <div class="member-image">
+            <img src={teamMember.image} alt={teamMember.name} />
+          </div>
+          <h3>{teamMember.name}</h3>
+          <p class="member-title">{teamMember.title}</p>
+          <p class="license">License# {teamMember.license}</p>
+          <p class="company">{teamMember.company}</p>
+          
+          <div class="member-bio">
+            <p class="credentials">{teamMember.credentials}</p>
+            <p>{teamMember.bio}</p>
             
-            <div class="member-bio">
-              <p class="credentials">{member.credentials}</p>
-              <p>{member.bio}</p>
-              
-              <div class="specializations">
-                <strong>Areas of Expertise:</strong>
-                <ul>
-                  {member.specializations.map((spec) => (
-                    <li>{spec}</li>
-                  ))}
-                </ul>
-              </div>
-              
-              <p class="service-areas">
-                <strong>Serving:</strong> {member.serviceAreas.join(', ')}
-              </p>
-              
-              <div class="contact-info">
-                <p><i class="fa fa-phone"></i> {member.phone}</p>
-                <p><i class="fa fa-envelope"></i> {member.email}</p>
-                <p><i class="fa fa-calendar"></i> <a href={member.calendly}>Schedule a Consultation</a></p>
-              </div>
-              
-              <div class="social-links">
-                <a href={member.social.linkedin} target="_blank"><i class="fa fa-linkedin"></i></a>
-                <a href={member.social.facebook} target="_blank"><i class="fa fa-facebook"></i></a>
-              </div>
+            <div class="specializations">
+              <strong>Areas of Expertise:</strong>
+              <ul>
+                {teamMember.specializations.map((spec) => (
+                  <li>{spec}</li>
+                ))}
+              </ul>
             </div>
+            
+            <p class="service-areas">
+              <strong>Serving:</strong> {teamMember.serviceAreas.join(', ')}
+            </p>
+            
+            <div class="contact-info">
+              <p><i class="fa fa-phone"></i> {teamMember.phone}</p>
+              <p><i class="fa fa-envelope"></i> {teamMember.email}</p>
+              <p><i class="fa fa-calendar"></i> <a href={teamMember.calendly}>Schedule a Consultation</a></p>
+            </div>
+            
+            <div class="social-links">
+              <a href={teamMember.social.linkedin} target="_blank" aria-label="LinkedIn Profile"><i class="fa fa-linkedin"></i></a>
+              <a href={teamMember.social.facebook} target="_blank" aria-label="Facebook Page"><i class="fa fa-facebook"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FAQ Section for SEO -->
+  <section class="faq-section">
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-grid">
+        {faqs.map((faq) => (
+          <div class="faq-item">
+            <h3>{faq.question}</h3>
+            <p>{faq.answer}</p>
           </div>
         ))}
       </div>
