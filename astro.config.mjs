@@ -4,8 +4,6 @@ import viteConfig from './vite.config.js';
 
 export default defineConfig({
   output: 'static',
-  site: 'https://yourusername.github.io',
-  base: '/newbridgehomes',
   server: {
     host: '0.0.0.0',
     port: 3000
