@@ -3,218 +3,314 @@
 import MainLayout from '../../layouts/MainLayout.astro';
 
 // This would normally come from a database or CMS
-const properties = [
-  {
-    id: 'luxury-villa',
+const properties = {
+  'luxury-villa': {
     title: 'Luxury Villa',
     price: 750000,
     address: '123 New Bridge Ave',
     beds: 4,
     baths: 3,
     sqft: 2500,
-    image: 'https://placehold.co/600x400',
-    description: 'Stunning luxury villa with modern amenities, spacious rooms, and beautiful garden. Perfect for families looking for comfort and elegance.'
+    year: 2022,
+    lotSize: '0.25 acres',
+    images: [
+      'https://placehold.co/800x600',
+      'https://placehold.co/800x600',
+      'https://placehold.co/800x600'
+    ],
+    description: 'Stunning luxury villa with modern amenities, spacious rooms, and beautiful garden. Perfect for families looking for comfort and elegance. This exceptional home features high ceilings, natural light throughout, and premium finishes. The gourmet kitchen includes high-end appliances, stone countertops, and a large island. The primary suite offers a spa-like bathroom and walk-in closet. Outside, you\'ll find a professionally landscaped yard, covered patio, and room for outdoor entertaining.',
+    features: [
+      'Gourmet kitchen with high-end appliances',
+      'Spacious primary suite with walk-in closet',
+      'Custom cabinetry and built-ins',
+      'Hardwood floors throughout main level',
+      'Energy-efficient windows and HVAC',
+      'Smart home technology',
+      'Outdoor covered patio',
+      'Professional landscaping'
+    ]
   },
-  {
-    id: 'modern-townhouse',
+  'modern-townhouse': {
     title: 'Modern Townhouse',
     price: 550000,
     address: '456 New Bridge Blvd',
     beds: 3,
     baths: 2.5,
     sqft: 1800,
-    image: 'https://placehold.co/600x400',
-    description: 'Contemporary townhouse with open floor plan, high ceilings, and premium finishes. Conveniently located near shops and restaurants.'
+    year: 2023,
+    lotSize: 'N/A (Townhome)',
+    images: [
+      'https://placehold.co/800x600',
+      'https://placehold.co/800x600',
+      'https://placehold.co/800x600'
+    ],
+    description: 'Contemporary townhouse with open floor plan, high ceilings, and premium finishes. Conveniently located near shops and restaurants. This beautiful townhome offers a modern lifestyle with minimal maintenance. The main level features an open concept design that\'s perfect for entertaining, while the upper level provides comfortable bedrooms and a luxurious primary suite. Enjoy the convenience of an attached garage and private outdoor space.',
+    features: [
+      'Open concept floor plan',
+      'Designer kitchen with quartz countertops',
+      'Luxury vinyl plank flooring',
+      'Primary suite with ensuite bathroom',
+      'Attached two-car garage',
+      'Private patio',
+      'Low-maintenance exterior',
+      'Community amenities access'
+    ]
   },
-  {
-    id: 'family-home',
+  'family-home': {
     title: 'Family Home',
     price: 650000,
     address: '789 New Bridge Court',
     beds: 4,
     baths: 3,
     sqft: 2200,
-    image: 'https://placehold.co/600x400',
-    description: 'Spacious family home in a quiet cul-de-sac. Features include a large backyard, updated kitchen, and comfortable living spaces.'
-  },
-  {
-    id: 'cozy-cottage',
-    title: 'Cozy Cottage',
-    price: 450000,
-    address: '321 New Bridge Lane',
-    beds: 2,
-    baths: 2,
-    sqft: 1500,
-    image: 'https://placehold.co/600x400',
-    description: 'Charming cottage with character and modern updates. Perfect for first-time buyers or downsizers looking for quality and comfort.'
-  },
-  {
-    id: 'executive-estate',
-    title: 'Executive Estate',
-    price: 950000,
-    address: '555 New Bridge Parkway',
-    beds: 5,
-    baths: 4.5,
-    sqft: 3800,
-    image: 'https://placehold.co/600x400',
-    description: 'Impressive executive home with luxury finishes, gourmet kitchen, home theater, and resort-style backyard with pool.'
-  },
-  {
-    id: 'downtown-condo',
-    title: 'Downtown Condo',
-    price: 350000,
-    address: '888 New Bridge Center',
-    beds: 2,
-    baths: 2,
-    sqft: 1200,
-    image: 'https://placehold.co/600x400',
-    description: 'Modern condo in the heart of downtown. Features include floor-to-ceiling windows, balcony with views, and secure parking.'
+    year: 2021,
+    lotSize: '0.2 acres',
+    images: [
+      'https://placehold.co/800x600',
+      'https://placehold.co/800x600',
+      'https://placehold.co/800x600'
+    ],
+    description: 'Spacious family home in a quiet cul-de-sac. Features include a large backyard, updated kitchen, and comfortable living spaces. This welcoming home is perfect for family living and entertaining. The functional layout provides plenty of space for everyone, with a bonus room that could serve as an office, playroom, or media room. The backyard is fully fenced with a covered patio and plenty of space for outdoor activities.',
+    features: [
+      'Open kitchen with center island',
+      'Large family room with fireplace',
+      'Bonus room/office space',
+      'Primary suite on main level',
+      'Fenced backyard',
+      'Covered patio',
+      'Mudroom/laundry room',
+      'Quiet cul-de-sac location'
+    ]
   }
-];
+};
 
-export function getStaticPaths() {
-  return properties.map(property => ({
-    params: { id: property.id },
-    props: { property },
-  }));
+const { id } = Astro.params;
+const property = properties[id];
+
+// Handle case when property isn't found
+if (!property) {
+  return Astro.redirect('/listings');
 }
-
-const { property } = Astro.props;
 ---
 
 <MainLayout title={`${property.title} | New Bridge Homes`}>
-  <section class="property-detail-hero">
+  <div class="property-detail">
     <div class="container">
-      <a href="/listings" class="back-link">&larr; Back to Listings</a>
-      <div class="property-detail-container">
-        <div class="property-detail-image">
-          <img src={property.image} alt={property.title} />
-        </div>
-        <div class="property-detail-info">
-          <h1>{property.title}</h1>
-          <p class="price">${property.price.toLocaleString()}</p>
-          <p class="address">{property.address}</p>
-          <div class="property-features">
-            <span>{property.beds} Beds</span>
-            <span>{property.baths} Baths</span>
-            <span>{property.sqft.toLocaleString()} sqft</span>
-          </div>
-        </div>
+      <div class="property-header">
+        <h1>{property.title}</h1>
+        <p class="property-address">{property.address}</p>
+        <p class="property-price">${property.price.toLocaleString()}</p>
       </div>
-    </div>
-  </section>
-
-  <section class="property-description-section">
-    <div class="container">
-      <div class="property-detail-grid">
-        <div class="property-detail-content">
-          <h2>Description</h2>
-          <p>{property.description}</p>
+      
+      <div class="property-gallery">
+        {property.images.map((image) => (
+          <div class="gallery-image">
+            <img src={image} alt={property.title} />
+          </div>
+        ))}
+      </div>
+      
+      <div class="property-content">
+        <div class="property-main">
+          <div class="property-overview">
+            <div class="overview-item">
+              <span class="label">Bedrooms</span>
+              <span class="value">{property.beds}</span>
+            </div>
+            <div class="overview-item">
+              <span class="label">Bathrooms</span>
+              <span class="value">{property.baths}</span>
+            </div>
+            <div class="overview-item">
+              <span class="label">Square Feet</span>
+              <span class="value">{property.sqft.toLocaleString()}</span>
+            </div>
+            <div class="overview-item">
+              <span class="label">Year Built</span>
+              <span class="value">{property.year}</span>
+            </div>
+            <div class="overview-item">
+              <span class="label">Lot Size</span>
+              <span class="value">{property.lotSize}</span>
+            </div>
+          </div>
           
-          <h2>Property Features</h2>
-          <ul class="features-list">
-            <li>Modern kitchen with stainless steel appliances</li>
-            <li>Open floor plan</li>
-            <li>Hardwood floors</li>
-            <li>Central heating and air conditioning</li>
-            <li>Attached two-car garage</li>
-            <li>Private backyard</li>
-          </ul>
+          <div class="property-section">
+            <h2>Property Description</h2>
+            <p>{property.description}</p>
+          </div>
           
-          <h2>Location</h2>
-          <p>Located in the desirable New Bridge community, this property is close to schools, parks, shopping, and dining. Easy access to major highways makes commuting a breeze.</p>
+          <div class="property-section">
+            <h2>Features & Amenities</h2>
+            <ul class="features-list">
+              {property.features.map((feature) => (
+                <li>{feature}</li>
+              ))}
+            </ul>
+          </div>
         </div>
         
         <div class="property-sidebar">
-          <div class="contact-agent">
+          <div class="contact-form">
             <h3>Interested in this property?</h3>
-            <p>Fill out the form below and one of our agents will contact you shortly.</p>
-            <form class="contact-form">
+            <p>Fill out the form below to schedule a showing or request more information.</p>
+            <form>
               <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name" required />
               </div>
               <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" required />
               </div>
               <div class="form-group">
                 <label for="phone">Phone</label>
-                <input type="tel" id="phone" name="phone">
+                <input type="tel" id="phone" name="phone" />
               </div>
               <div class="form-group">
                 <label for="message">Message</label>
-                <textarea id="message" name="message" rows="4"></textarea>
+                <textarea id="message" name="message" rows="4" required>I'm interested in learning more about this property.</textarea>
               </div>
-              <button type="submit" class="btn btn-primary">Send Message</button>
+              <button type="submit" class="btn btn-primary btn-block">Send Message</button>
             </form>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 </MainLayout>
 
 <style>
-  .property-detail-hero {
+  .property-detail {
     padding: 3rem 0;
   }
   
-  .back-link {
-    display: inline-block;
-    margin-bottom: 2rem;
-    color: var(--color-primary);
-    text-decoration: none;
-    font-weight: 500;
-  }
-  
-  .back-link:hover {
-    text-decoration: underline;
-  }
-  
-  .property-detail-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+  .property-header {
     margin-bottom: 2rem;
   }
   
-  .property-detail-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-  }
-  
-  .property-detail-info h1 {
+  .property-header h1 {
     font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: var(--color-dark);
-  }
-  
-  .property-detail-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 3rem;
-  }
-  
-  .features-list {
-    margin-left: 1.5rem;
-    margin-bottom: 2rem;
-  }
-  
-  .features-list li {
     margin-bottom: 0.5rem;
   }
   
-  .contact-agent {
+  .property-address {
+    font-size: 1.2rem;
+    color: var(--color-gray);
+    margin-bottom: 0.5rem;
+  }
+  
+  .property-price {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+  
+  .property-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .gallery-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
+  .property-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+  }
+  
+  .property-overview {
+    display: flex;
+    flex-wrap: wrap;
     background-color: var(--color-light);
-    padding: 2rem;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+  }
+  
+  .overview-item {
+    flex: 1;
+    min-width: 120px;
+    text-align: center;
+    padding: 0.5rem;
+  }
+  
+  .overview-item .label {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--color-gray);
+    margin-bottom: 0.25rem;
+  }
+  
+  .overview-item .value {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-dark);
+  }
+  
+  .property-section {
+    margin-bottom: 2.5rem;
+  }
+  
+  .property-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+  }
+  
+  .property-section p {
+    line-height: 1.7;
+  }
+  
+  .features-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 0.5rem 1.5rem;
+  }
+  
+  .features-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    line-height: 1.6;
+  }
+  
+  .features-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-size: 1.2rem;
+  }
+  
+  .property-sidebar {
+    align-self: start;
+  }
+  
+  .contact-form {
+    background-color: var(--color-light);
+    padding: 1.5rem;
     border-radius: 8px;
   }
   
-  .form-group {
+  .contact-form h3 {
+    margin-bottom: 0.75rem;
+  }
+  
+  .contact-form p {
     margin-bottom: 1.5rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
   }
   
   .form-group label {
@@ -229,20 +325,29 @@ const { property } = Astro.props;
     padding: 0.75rem;
     border: 1px solid #ddd;
     border-radius: 4px;
-    font-family: var(--font-body);
   }
   
-  .contact-form .btn {
+  .btn-block {
+    display: block;
     width: 100%;
   }
   
-  .property-description-section {
-    padding-bottom: 4rem;
+  @media (max-width: 992px) {
+    .property-gallery {
+      grid-template-columns: 1fr 1fr;
+    }
   }
   
   @media (max-width: 768px) {
-    .property-detail-container,
-    .property-detail-grid {
+    .property-content {
+      grid-template-columns: 1fr;
+    }
+    
+    .property-gallery {
+      grid-template-columns: 1fr;
+    }
+    
+    .features-list {
       grid-template-columns: 1fr;
     }
   }
