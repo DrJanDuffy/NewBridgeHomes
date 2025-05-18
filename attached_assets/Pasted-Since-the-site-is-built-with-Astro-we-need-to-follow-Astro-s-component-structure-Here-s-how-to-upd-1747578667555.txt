@@ -1,0 +1,89 @@
+Since the site is built with Astro, we need to follow Astro's component structure. Here's how to update the team page:
+
+In the team.astro file, locate the section that contains team members (likely in a component structure)
+Remove all existing team member components/entries
+Add Dr. Jan Duffy's information using Astro's component syntax:
+
+astro---
+// Import any necessary components
+import TeamMember from '../components/TeamMember.astro';
+// or this might be inline in the same file
+
+// Define the team member data
+const teamMembers = [
+  {
+    name: "Dr. Jan Duffy",
+    title: "Licensed REALTOR®",
+    license: "S.0197614.LLC",
+    company: "Berkshire Hathaway HomeServices Nevada Properties",
+    credentials: "Clinical Psychologist • Business Entrepreneur • Best-Selling Author",
+    bio: "Dr. Jan Duffy is a relationship-focused \"FOREVER AGENT\" who leverages her extensive background as a Clinical Psychologist, Business Entrepreneur, and Marketing Expert to provide exceptional service for buyers and sellers in the Las Vegas area. Specializing in luxury real estate, 55+ communities, divorce real estate transitions, and California-to-Las Vegas relocations, Dr. Duffy brings unmatched expertise and a strategic yet empathetic approach to every transaction.",
+    specializations: [
+      "Luxury Real Estate Transactions",
+      "55+ Community Specialist",
+      "Divorce Real Estate Expert",
+      "California to Las Vegas Relocations",
+      "First-Time Home Buyer Support",
+      "Investment Properties",
+      "New Construction Sales and Consulting"
+    ],
+    serviceAreas: ["Las Vegas", "Henderson", "North Las Vegas", "Summerlin", "Aliante", "Centennial Hills", "Tule Springs"],
+    phone: "(702) 500-1955",
+    email: "drjanduffy@bhhsnv.com",
+    calendly: "https://calendly.com/drjanduffy",
+    image: "/images/team/jan-duffy.jpg",
+    social: {
+      linkedin: "https://linkedin.com/in/drjanduffy",
+      facebook: "https://facebook.com/drduffyrealtorhenderson"
+    }
+  }
+];
+---
+
+<!-- Then in the HTML part of the file, update the team display -->
+<section class="team-section">
+  <div class="container">
+    <h2>Our Team</h2>
+    <div class="team-grid">
+      {teamMembers.map((member) => (
+        <div class="team-member">
+          <div class="team-member-image">
+            <img src={member.image} alt={member.name} />
+          </div>
+          <div class="team-member-info">
+            <h3>{member.name}</h3>
+            <p class="title">{member.title}</p>
+            <p class="license">License# {member.license}</p>
+            <p class="company">{member.company}</p>
+            <p class="credentials">{member.credentials}</p>
+            <p class="bio">{member.bio}</p>
+            
+            <div class="specializations">
+              <strong>Areas of Expertise:</strong>
+              <ul>
+                {member.specializations.map((spec) => (
+                  <li>{spec}</li>
+                ))}
+              </ul>
+            </div>
+            
+            <p class="service-areas">
+              <strong>Serving:</strong> {member.serviceAreas.join(', ')}
+            </p>
+            
+            <div class="contact-info">
+              <p><i class="fa fa-phone"></i> {member.phone}</p>
+              <p><i class="fa fa-envelope"></i> {member.email}</p>
+              <p><i class="fa fa-calendar"></i> <a href={member.calendly}>Schedule a Consultation</a></p>
+            </div>
+            
+            <div class="social-links">
+              <a href={member.social.linkedin} target="_blank"><i class="fa fa-linkedin"></i></a>
+              <a href={member.social.facebook} target="_blank"><i class="fa fa-facebook"></i></a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
