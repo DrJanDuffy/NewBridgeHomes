@@ -8,6 +8,17 @@ const { title = "New Bridge Homes For Sale" } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={Astro.props.description || "Find your dream home in New Bridge - luxury properties, townhomes, and family residences in a beautiful planned community."} />
+    <meta name="keywords" content="real estate, homes for sale, new bridge, luxury homes, property listings" />
+    <meta name="author" content="New Bridge Homes" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={Astro.props.description || "Find your dream home in New Bridge - luxury properties, townhomes, and family residences in a beautiful planned community."} />
+    <meta property="og:image" content="/images/og-image.jpg" />
+    <meta property="og:url" content="https://newbridgehomesforsale.com" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href={`https://newbridgehomesforsale.com${Astro.url.pathname}`} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <title>{title}</title>
     <link rel="stylesheet" href="/styles/global.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
