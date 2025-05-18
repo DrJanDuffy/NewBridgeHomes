@@ -1,4 +1,3 @@
-
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
 
@@ -73,7 +72,17 @@ const properties = [
 ];
 ---
 
-<MainLayout title="Properties For Sale | New Bridge Homes">
+<MainLayout title="Properties for Sale | New Bridge Homes">
+  <div class="container">
+    <realscout-office-listings 
+      agent-encoded-id="QWdlbnQtMjI1MDUw" 
+      sort-order="NEWEST" 
+      listing-status="For Sale" 
+      property-types="SFR,MF" 
+      price-min="500000" 
+      price-max="700000">
+    </realscout-office-listings>
+  </div>
   <section class="listings-hero">
     <div class="container">
       <h1>Available Properties</h1>
@@ -211,5 +220,9 @@ const properties = [
     .filter-item {
       width: 100%;
     }
+  }
+
+  .listings-grid {
+    padding-bottom: 4rem;
   }
 </style>
