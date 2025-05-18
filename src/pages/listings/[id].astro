@@ -102,7 +102,11 @@ if (!property) {
         <p class="property-price">${property.price.toLocaleString()}</p>
       </div>
       
-      <div class="property-gallery">
+      <div class="main-image">
+        <img src={property.images[0]} alt={property.title} />
+      </div>
+      
+      <div class="property-gallery thumbnails">
         {property.images.map((image) => (
           <div class="gallery-image">
             <img src={image} alt={property.title} />
