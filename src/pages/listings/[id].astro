@@ -2,90 +2,90 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
 
-// This would normally come from a database or CMS
-const properties = {
-  'luxury-villa': {
-    title: 'Luxury Villa',
-    price: 750000,
-    address: '123 New Bridge Ave',
-    beds: 4,
-    baths: 3,
-    sqft: 2500,
-    year: 2022,
-    lotSize: '0.25 acres',
-    images: [
-      'https://placehold.co/800x600',
-      'https://placehold.co/800x600',
-      'https://placehold.co/800x600'
-    ],
-    description: 'Stunning luxury villa with modern amenities, spacious rooms, and beautiful garden. Perfect for families looking for comfort and elegance. This exceptional home features high ceilings, natural light throughout, and premium finishes. The gourmet kitchen includes high-end appliances, stone countertops, and a large island. The primary suite offers a spa-like bathroom and walk-in closet. Outside, you\'ll find a professionally landscaped yard, covered patio, and room for outdoor entertaining.',
-    features: [
-      'Gourmet kitchen with high-end appliances',
-      'Spacious primary suite with walk-in closet',
-      'Custom cabinetry and built-ins',
-      'Hardwood floors throughout main level',
-      'Energy-efficient windows and HVAC',
-      'Smart home technology',
-      'Outdoor covered patio',
-      'Professional landscaping'
-    ]
-  },
-  'modern-townhouse': {
-    title: 'Modern Townhouse',
-    price: 550000,
-    address: '456 New Bridge Blvd',
-    beds: 3,
-    baths: 2.5,
-    sqft: 1800,
-    year: 2023,
-    lotSize: 'N/A (Townhome)',
-    images: [
-      'https://placehold.co/800x600',
-      'https://placehold.co/800x600',
-      'https://placehold.co/800x600'
-    ],
-    description: 'Contemporary townhouse with open floor plan, high ceilings, and premium finishes. Conveniently located near shops and restaurants. This beautiful townhome offers a modern lifestyle with minimal maintenance. The main level features an open concept design that\'s perfect for entertaining, while the upper level provides comfortable bedrooms and a luxurious primary suite. Enjoy the convenience of an attached garage and private outdoor space.',
-    features: [
-      'Open concept floor plan',
-      'Designer kitchen with quartz countertops',
-      'Luxury vinyl plank flooring',
-      'Primary suite with ensuite bathroom',
-      'Attached two-car garage',
-      'Private patio',
-      'Low-maintenance exterior',
-      'Community amenities access'
-    ]
-  },
-  'family-home': {
-    title: 'Family Home',
-    price: 650000,
-    address: '789 New Bridge Court',
-    beds: 4,
-    baths: 3,
-    sqft: 2200,
-    year: 2021,
-    lotSize: '0.2 acres',
-    images: [
-      'https://placehold.co/800x600',
-      'https://placehold.co/800x600',
-      'https://placehold.co/800x600'
-    ],
-    description: 'Spacious family home in a quiet cul-de-sac. Features include a large backyard, updated kitchen, and comfortable living spaces. This welcoming home is perfect for family living and entertaining. The functional layout provides plenty of space for everyone, with a bonus room that could serve as an office, playroom, or media room. The backyard is fully fenced with a covered patio and plenty of space for outdoor activities.',
-    features: [
-      'Open kitchen with center island',
-      'Large family room with fireplace',
-      'Bonus room/office space',
-      'Primary suite on main level',
-      'Fenced backyard',
-      'Covered patio',
-      'Mudroom/laundry room',
-      'Quiet cul-de-sac location'
-    ]
-  }
-};
+export function getStaticPaths() {
+  // Define properties inside getStaticPaths so it's available in this function's scope
+  const properties = {
+    'luxury-villa': {
+      title: 'Luxury Villa',
+      price: 750000,
+      address: '123 New Bridge Ave',
+      beds: 4,
+      baths: 3,
+      sqft: 2500,
+      year: 2022,
+      lotSize: '0.25 acres',
+      images: [
+        'https://placehold.co/800x600',
+        'https://placehold.co/800x600',
+        'https://placehold.co/800x600'
+      ],
+      description: 'Stunning luxury villa with modern amenities, spacious rooms, and beautiful garden. Perfect for families looking for comfort and elegance. This exceptional home features high ceilings, natural light throughout, and premium finishes. The gourmet kitchen includes high-end appliances, stone countertops, and a large island. The primary suite offers a spa-like bathroom and walk-in closet. Outside, you\'ll find a professionally landscaped yard, covered patio, and room for outdoor entertaining.',
+      features: [
+        'Gourmet kitchen with high-end appliances',
+        'Spacious primary suite with walk-in closet',
+        'Custom cabinetry and built-ins',
+        'Hardwood floors throughout main level',
+        'Energy-efficient windows and HVAC',
+        'Smart home technology',
+        'Outdoor covered patio',
+        'Professional landscaping'
+      ]
+    },
+    'modern-townhouse': {
+      title: 'Modern Townhouse',
+      price: 550000,
+      address: '456 New Bridge Blvd',
+      beds: 3,
+      baths: 2.5,
+      sqft: 1800,
+      year: 2023,
+      lotSize: 'N/A (Townhome)',
+      images: [
+        'https://placehold.co/800x600',
+        'https://placehold.co/800x600',
+        'https://placehold.co/800x600'
+      ],
+      description: 'Contemporary townhouse with open floor plan, high ceilings, and premium finishes. Conveniently located near shops and restaurants. This beautiful townhome offers a modern lifestyle with minimal maintenance. The main level features an open concept design that\'s perfect for entertaining, while the upper level provides comfortable bedrooms and a luxurious primary suite. Enjoy the convenience of an attached garage and private outdoor space.',
+      features: [
+        'Open concept floor plan',
+        'Designer kitchen with quartz countertops',
+        'Luxury vinyl plank flooring',
+        'Primary suite with ensuite bathroom',
+        'Attached two-car garage',
+        'Private patio',
+        'Low-maintenance exterior',
+        'Community amenities access'
+      ]
+    },
+    'family-home': {
+      title: 'Family Home',
+      price: 650000,
+      address: '789 New Bridge Court',
+      beds: 4,
+      baths: 3,
+      sqft: 2200,
+      year: 2021,
+      lotSize: '0.2 acres',
+      images: [
+        'https://placehold.co/800x600',
+        'https://placehold.co/800x600',
+        'https://placehold.co/800x600'
+      ],
+      description: 'Spacious family home in a quiet cul-de-sac. Features include a large backyard, updated kitchen, and comfortable living spaces. This welcoming home is perfect for family living and entertaining. The functional layout provides plenty of space for everyone, with a bonus room that could serve as an office, playroom, or media room. The backyard is fully fenced with a covered patio and plenty of space for outdoor activities.',
+      features: [
+        'Open kitchen with center island',
+        'Large family room with fireplace',
+        'Bonus room/office space',
+        'Primary suite on main level',
+        'Fenced backyard',
+        'Covered patio',
+        'Mudroom/laundry room',
+        'Quiet cul-de-sac location'
+      ]
+    }
+  };
 
-// Add this getStaticPaths function
-export async function getStaticPaths() {
+  // Return array of objects with params and props
   return Object.keys(properties).map(id => {
     return {
       params: { id },
@@ -97,8 +97,6 @@ export async function getStaticPaths() {
 // Get the property from props instead of looking it up
 const { id } = Astro.params;
 const { property } = Astro.props;
-
-// No need to check if property exists or redirect since we're statically generating only valid paths
 ---
 
 <MainLayout title={`${property.title} | New Bridge Homes`}>
