@@ -13,9 +13,10 @@ channel = "stable-22_11"
 build = ["sh", "-c", "npm run build"]
 deploymentTarget = "static"
 publicDir = "dist"
+run = ["sh", "-c", ""]
 
 [workflows]
-runButton = "Preview Site"
+runButton = "Run"
 
 [[workflows.workflow]]
 name = "Run"
