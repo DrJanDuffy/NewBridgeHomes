@@ -1,123 +1,171 @@
 
 ---
-import MainLayout from '../layouts/MainLayout.astro';
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import { SEO } from 'astro-seo';
 
-// Define the team member data
+// SEO-optimized real estate keywords for Las Vegas market
+const keywords = [
+  "Las Vegas luxury realtor",
+  "Henderson Nevada homes for sale",
+  "55+ communities Las Vegas",
+  "Summerlin real estate expert",
+  "California to Las Vegas relocation",
+  "investment properties Nevada",
+  "North Las Vegas REALTOR",
+  "Berkshire Hathaway real estate agent"
+];
+
+// Define Dr. Jan Duffy's information with structured data-friendly format
 const teamMember = {
+  "@type": "RealEstateAgent",
   name: "Dr. Jan Duffy",
-  title: "Licensed REALTOR®",
+  jobTitle: "Licensed REALTOR®",
   license: "S.0197614.LLC",
-  company: "Berkshire Hathaway HomeServices Nevada Properties",
-  credentials: "Clinical Psychologist • Business Entrepreneur • Best-Selling Author",
-  bio: "Dr. Jan Duffy is a relationship-focused \"FOREVER AGENT\" who leverages her extensive background as a Clinical Psychologist, Business Entrepreneur, and Marketing Expert to provide exceptional service for buyers and sellers in the Las Vegas area. Specializing in luxury real estate, 55+ communities, divorce real estate transitions, and California-to-Las Vegas relocations, Dr. Duffy brings unmatched expertise and a strategic yet empathetic approach to every transaction.",
-  specializations: [
+  worksFor: {
+    "@type": "RealEstateOrganization",
+    name: "Berkshire Hathaway HomeServices Nevada Properties",
+    url: "https://www.bhhsnv.com/"
+  },
+  description: "Dr. Jan Duffy is a dedicated REALTOR® with Berkshire Hathaway HomeServices Nevada Properties, specializing in luxury properties, investment opportunities, and 55+ communities throughout Las Vegas, Henderson, and Summerlin.",
+  expertise: "Luxury Real Estate Specialist • Investment Property Expert",
+  mainEntityOfPage: new URL(Astro.url.pathname, Astro.site).toString(),
+  knowsAbout: [
     "Luxury Real Estate Transactions",
-    "55+ Community Specialist",
-    "Divorce Real Estate Expert",
-    "California to Las Vegas Relocations",
-    "First-Time Home Buyer Support",
-    "Investment Properties",
-    "New Construction Sales and Consulting"
+    "55+ Community Properties",
+    "Las Vegas Real Estate Market",
+    "California to Nevada Relocations",
+    "First-Time Home Buyer Guidance",
+    "New Construction Sales",
+    "Property Valuation and Market Analysis"
+  ],
+  areaServed: [
+    {
+      "@type": "City",
+      name: "Las Vegas"
+    },
+    {
+      "@type": "City",
+      name: "Henderson"
+    },
+    {
+      "@type": "City",
+      name: "North Las Vegas"
+    },
+    {
+      "@type": "City",
+      name: "Summerlin"
+    },
+    {
+      "@type": "City",
+      name: "Aliante"
+    },
+    {
+      "@type": "City",
+      name: "Centennial Hills"
+    },
+    {
+      "@type": "City",
+      name: "Tule Springs"
+    }
   ],
   serviceAreas: ["Las Vegas", "Henderson", "North Las Vegas", "Summerlin", "Aliante", "Centennial Hills", "Tule Springs"],
-  phone: "(702) 500-1955",
+  telephone: "(702) 500-1955",
   email: "drjanduffy@bhhsnv.com",
-  calendly: "https://calendly.com/drjanduffy",
-  image: "/images/team/jan-duffy.jpg",
-  social: {
-    linkedin: "https://linkedin.com/in/drjanduffy",
-    facebook: "https://facebook.com/drduffyrealtorhenderson"
-  }
+  calendlyUrl: "https://calendly.com/drjanduffy",
+  image: {
+    "@type": "ImageObject",
+    url: "/images/team/jan-duffy.jpg",
+    width: 800,
+    height: 800,
+    caption: "Dr. Jan Duffy, Licensed REALTOR® with Berkshire Hathaway HomeServices Nevada Properties",
+    contentUrl: "/images/team/jan-duffy.jpg"
+  },
+  sameAs: [
+    "https://linkedin.com/in/drjanduffy",
+    "https://facebook.com/drduffyrealtorhenderson"
+  ]
 };
 
-// FAQ items for SEO
-const faqs = [
-  {
-    question: "What areas of Las Vegas does Dr. Jan Duffy serve?",
-    answer: "Dr. Jan Duffy serves Las Vegas, Henderson, North Las Vegas, Summerlin, Aliante, Centennial Hills, and Tule Springs areas with comprehensive real estate services."
-  },
-  {
-    question: "What types of properties does Dr. Jan Duffy specialize in?",
-    answer: "Dr. Jan Duffy specializes in luxury properties, 55+ communities, investment properties, new construction, and homes for first-time buyers throughout the Las Vegas area."
-  },
-  {
-    question: "How can I schedule a consultation with Dr. Jan Duffy?",
-    answer: "You can schedule a consultation with Dr. Jan Duffy by calling (702) 500-1955, emailing drjanduffy@bhhsnv.com, or using her online scheduling system at calendly.com/drjanduffy."
-  }
-];
+const title = `Meet Dr. Jan Duffy - Las Vegas Luxury Real Estate Expert | BHHS Nevada`;
 ---
 
-<MainLayout title="Meet Dr. Jan Duffy | Las Vegas Luxury Real Estate Expert">
-  <section class="page-header">
+<Layout title={title}>
+  <header class="page-header">
     <div class="container">
       <h1>Our Team</h1>
+      <p>Meet the experts who will help you find your dream home</p>
     </div>
-  </section>
-  
-  <section class="team-section">
+  </header>
+
+  <main class="team-section">
     <div class="container">
-      <div class="section-header">
-        <h2>Meet Our Expert</h2>
-        <p>Our dedicated professional is committed to providing exceptional service for all your real estate needs in Las Vegas.</p>
-      </div>
-      
-      <div class="team-grid">
+      <div class="team-grid" itemscope itemtype="https://schema.org/RealEstateAgent">
         <div class="team-member">
           <div class="member-image">
-            <img src={teamMember.image} alt={teamMember.name} />
+            <img src={teamMember.image.url} alt={teamMember.image.caption} width="800" height="800" />
           </div>
-          <h3>{teamMember.name}</h3>
-          <p class="member-title">{teamMember.title}</p>
-          <p class="license">License# {teamMember.license}</p>
-          <p class="company">{teamMember.company}</p>
+          <h3 itemprop="name">{teamMember.name}</h3>
+          <div class="member-title" itemprop="jobTitle">{teamMember.jobTitle}</div>
+          <div class="license">License: {teamMember.license}</div>
+          <div class="company" itemprop="worksFor" itemscope itemtype="https://schema.org/Organization">
+            <span itemprop="name">{teamMember.worksFor.name}</span>
+          </div>
           
           <div class="member-bio">
-            <p class="credentials">{teamMember.credentials}</p>
-            <p>{teamMember.bio}</p>
+            <div class="credentials" itemprop="knowsAbout">{teamMember.expertise}</div>
+            <p itemprop="description">{teamMember.description}</p>
             
             <div class="specializations">
               <strong>Areas of Expertise:</strong>
               <ul>
-                {teamMember.specializations.map((spec) => (
-                  <li>{spec}</li>
+                {teamMember.knowsAbout.map(skill => (
+                  <li>{skill}</li>
                 ))}
               </ul>
             </div>
             
-            <p class="service-areas">
-              <strong>Serving:</strong> {teamMember.serviceAreas.join(', ')}
-            </p>
-            
-            <div class="contact-info">
-              <p><i class="fa fa-phone"></i> {teamMember.phone}</p>
-              <p><i class="fa fa-envelope"></i> {teamMember.email}</p>
-              <p><i class="fa fa-calendar"></i> <a href={teamMember.calendly}>Schedule a Consultation</a></p>
+            <div class="service-areas">
+              <strong>Areas Served:</strong>
+              <p>{teamMember.serviceAreas.join(", ")}</p>
             </div>
             
-            <div class="social-links">
-              <a href={teamMember.social.linkedin} target="_blank" aria-label="LinkedIn Profile"><i class="fa fa-linkedin"></i></a>
-              <a href={teamMember.social.facebook} target="_blank" aria-label="Facebook Page"><i class="fa fa-facebook"></i></a>
+            <div class="contact-info">
+              <p>
+                <strong>Phone:</strong> 
+                <a href={`tel:${teamMember.telephone}`} itemprop="telephone">{teamMember.telephone}</a>
+              </p>
+              <p>
+                <strong>Email:</strong> 
+                <a href={`mailto:${teamMember.email}`} itemprop="email">{teamMember.email}</a>
+              </p>
+              <p>
+                <strong>Schedule a Consultation:</strong> 
+                <a href={teamMember.calendlyUrl} target="_blank" rel="noopener">Book Online</a>
+              </p>
+              
+              <div class="social-links">
+                {teamMember.sameAs.map(socialUrl => (
+                  <a href={socialUrl} target="_blank" rel="noopener noreferrer" aria-label={`Follow ${teamMember.name} on ${socialUrl.includes('linkedin') ? 'LinkedIn' : 'Facebook'}`}>
+                    <i class={`fa fa-${socialUrl.includes('linkedin') ? 'linkedin' : 'facebook'}`}></i>
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
-  
-  <!-- FAQ Section for SEO -->
-  <section class="faq-section">
-    <div class="container">
-      <h2>Frequently Asked Questions</h2>
-      <div class="faq-grid">
-        {faqs.map((faq) => (
-          <div class="faq-item">
-            <h3>{faq.question}</h3>
-            <p>{faq.answer}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-</MainLayout>
+  </main>
+</Layout>
 
-<script is:inline src="/scripts/team.js"></script>
+<style>
+  @import "../public/styles/team.css";
+  
+  .page-header {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 4rem 0 2rem;
+    text-align: center;
+  }
+</style>
