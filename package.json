@@ -7,11 +7,11 @@
   
   "main": "index.js",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
+    "dev": "astro dev --host 0.0.0.0",
+    "start": "astro dev --host 0.0.0.0",
     "build": "astro build",
     "preview": "astro preview",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "astro": "astro",
     "replit": "npx serve dist -l 5000"
   },
   "keywords": [],
