@@ -16,7 +16,7 @@ publicDir = "dist"
 run = ["sh", "-c", "npx serve dist"]
 
 [workflows]
-runButton = "Run Site"
+runButton = "Run Dev Server"
 
 [[workflows.workflow]]
 name = "Run"
@@ -37,7 +37,7 @@ task = "shell.exec"
 args = "npx serve dist -l 5000"
 
 [[workflows.workflow]]
-name = "Run Site"
+name = "Run Dev Server"
 author = 22930014
 mode = "sequential"
 
